@@ -2,13 +2,13 @@
   "meta": {
     "siteName": "Matiq Labs",
     "baseUrl": "https://matiqlabs.com",
-    "description": "Intelligence for Autonomous Operations. Matiq Labs builds AI systems that replace manual operational workflows for businesses.",
+    "description": "Matiq Labs builds AI systems that automate manual operational workflows for businesses.",
     "tagline": "Intelligence for Autonomous Operations",
     "keywords": ["Matiq Labs", "AI automation", "workflow automation", "CargoMatiq", "autonomous operations", "freight reconciliation"],
-    "homeTitle": "Matiq Labs — Intelligence for Autonomous Operations",
-    "homeDescription": "Matiq Labs builds AI systems that replace manual operational workflows. Start with a free discovery session.",
+    "homeTitle": "Matiq Labs — AI Systems for Modern Operations",
+    "homeDescription": "Matiq Labs builds AI systems that remove repetitive manual work from business operations. Start with a discovery session.",
     "cargoTitle": "CargoMatiq — Freight Reconciliation, Automated",
-    "cargoDescription": "CargoMatiq automates vendor invoice reconciliation for freight forwarders. Any format, any vendor, no manual work."
+    "cargoDescription": "CargoMatiq automates freight invoice reconciliation from vendor statement intake to exception-ready reports."
   },
   "company": {
     "email": "info@matiqlabs.com",
@@ -25,16 +25,16 @@
     ],
     "productsLabel": "Products",
     "productName": "CargoMatiq",
-    "productDescription": "Autonomous invoice reconciliation",
+    "productDescription": "Freight reconciliation automation",
     "cta": "Book a call"
   },
   "footer": {
     "companyLabel": "Company",
     "productsLabel": "Products",
-    "contactLabel": "Get In Touch",
-    "productNote": "Freight invoice reconciliation",
-    "companyStamp": "AI Automation Company · Chennai, India · 2024",
-    "bottomNote": "AI Automation Company",
+    "contactLabel": "Get in Touch",
+    "productNote": "Freight reconciliation automation",
+    "companyStamp": "AI Automation Company · Chennai, India",
+    "bottomNote": "AI Systems for Modern Operations",
     "socials": ["in", "x"]
   },
   "forms": {
@@ -43,54 +43,70 @@
     "namePlaceholder": "Your name",
     "companyPlaceholder": "Company name",
     "emailPlaceholder": "Work email",
-    "accessDetailsPlaceholder": "Tell us about your reconciliation workflow — vendor volume, formats you deal with, and what the current process looks like.",
-    "discoveryDetailsPlaceholder": "Describe the workflow. What does the team do manually today, and where does it slow down or break?",
+    "accessDetailsPlaceholder": "Tell us how reconciliation works today — vendor volume, file formats, systems used, and where the process slows down.",
+    "discoveryDetailsPlaceholder": "Tell us about the workflow. What is manual today? Where does the team lose time? What breaks when volume increases?",
     "sending": "Sending...",
-    "success": "Got it. We will review and get back to you directly."
+    "success": "Got it. We will review this and get back to you directly."
   },
   "home": {
     "hero": {
-      "label": "AI systems for freight and operations",
-      "title": "Your team is spending time on work that should already be automated.",
-      "description": "Matiq Labs builds AI systems that replace the manual, repetitive workflows your operations run on — so your people can focus on the work that actually needs them.",
-      "primaryCta": "Book a free discovery session",
+      "label": "AI automation for operations",
+      "title": "Turn manual workflows into systems that run.",
+      "description": "Matiq Labs builds AI systems that take over repetitive operational work across emails, spreadsheets, documents, approvals, and reports — so teams move faster without adding more manual effort.",
+      "primaryCta": "Book a discovery call",
       "secondaryCta": "See CargoMatiq",
+      "previewLabel": "System preview",
+      "pills": ["Built for real workflows", "Handles messy data", "Deployed into operations"],
       "stats": [
-        ["300+", "Hours removed monthly from reconciliation-heavy workflows"],
-        ["60%", "Of operational work is better handled by a system than a person"],
-        ["24/7", "AI systems that keep moving even when inputs are messy or inconsistent"]
+        ["5+", "Tools often touched in one workflow"],
+        ["300+", "Manual hours that can be removed monthly"],
+        ["1", "System to keep the workflow moving"]
       ]
     },
     "problem": {
-      "label": "The problem",
-      "title": "The work moves — but only because people keep pushing it.",
-      "description": "When processes live across inboxes, spreadsheets, and individual memory, every exception becomes a full reset. The team is not slow. The system is fragile.",
-      "stackLabel": "Where the work lives today",
+      "label": "The reality",
+      "title": "Operations slow down one manual step at a time.",
+      "description": "The problem is usually not the team. It is the workflow. Critical processes still depend on someone remembering, checking, copying, chasing, correcting, and following up. That works at small volume. It breaks when the business grows.",
+      "kpis": [
+        ["11h", "Weekly drag", "Lost to chasing, checking, and cleanup per operator."],
+        ["5", "Touchpoints", "Systems or people involved in one fragile workflow."],
+        ["68%", "Repeat work", "Operational tasks that repeat but still need people."]
+      ],
+      "stackLabel": "Where work lives today",
       "stack": ["Inboxes", "Spreadsheets", "Follow-up chains", "Manual exceptions"],
-      "signalLabel": "What that costs",
-      "signalTitle": "Capable teams stuck doing mechanical work.",
-      "signalBody": "The judgment your team was hired for gets spent on sorting, cleaning, and chasing instead.",
+      "signalLabel": "What it costs",
+      "signalBadge": "Operational drag",
+      "signalTitle": "Good teams trapped in low-value work.",
+      "signalBody": "The judgment your team was hired for gets spent on sorting files, cleaning data, and chasing the next missing detail.",
+      "capacityLabel": "Where time goes",
+      "capacityMeta": "Weekly capacity loss",
+      "capacityBars": [
+        ["Chasing documents", 81],
+        ["Cleaning data", 74],
+        ["Resolving mismatches", 63]
+      ],
       "metrics": [
-        ["Process lives in people", "When someone leaves or is out, the workflow stops."],
-        ["Every vendor is different", "Format inconsistency creates manual work at every cycle."],
-        ["Exceptions restart everything", "One edge case and the team is back at the beginning."]
+        ["Work lives in people", "When one person is unavailable, the workflow slows down."],
+        ["Inputs keep changing", "Every vendor, file, and exception creates more manual effort."],
+        ["Scale adds friction", "More volume means more coordination, not more clarity."]
       ]
     },
     "build": {
       "label": "What we build",
-      "title": "AI systems built around the workflow you already have — not the one a template assumes.",
+      "title": "AI systems built around how your business actually works.",
+      "footnote": "Mapped to real inputs, handoffs, exceptions, and outcomes",
       "cards": [
-        ["search", "Workflow discovery", "We find exactly where time, delay, and operational risk are concentrated before writing a line of code."],
-        ["layers", "Custom AI systems", "We build around your real workflow — the actual inputs, exceptions, and edge cases your team deals with every day."],
-        ["rocket", "Deployment and handover", "We deploy into your stack, train your team, and hand over a system they can run without us."]
+        ["search", "Workflow discovery", "We find where time, delay, and operational risk are concentrated before deciding what should be automated."],
+        ["layers", "Custom AI systems", "We build around your actual workflow — the inputs, exceptions, approvals, and edge cases your team handles every day."],
+        ["rocket", "Deployment and handover", "We deploy into your workflow, train your team, and hand over a system they can run without us in the room."]
       ]
     },
     "services": {
       "label": "Services",
-      "title": "We identify the workflow that costs the most. Then we replace it.",
-      "description": "One engagement, one focus: the highest-value manual process in your operations. We scope it, build it, and deploy it — and you own what gets built.",
+      "title": "We find the manual workflow worth fixing first.",
+      "description": "Most businesses already know where work feels painful. Reconciliation. Approvals. Reporting. Vendor coordination. Document processing. Follow-ups. We help turn that pain into a system that runs with less manual effort.",
       "items": [
-        "Document-heavy intake and processing",
+        "Document intake and processing",
         "Invoice matching and reconciliation",
         "Approval routing and exception handling",
         "Reporting, handoffs, and follow-through"
@@ -98,82 +114,87 @@
     },
     "about": {
       "label": "About",
-      "title": "We build systems that do the work — not tools that help people do more of it.",
-      "description": "Matiq Labs is an AI automation company. We work with operations-heavy businesses to find the workflows that should no longer depend on manual coordination and build the systems that replace them.",
-      "spotlightLabel": "How we think about the work",
+      "title": "We build systems that do the work.",
+      "description": "Matiq Labs is an AI automation company for operations-heavy businesses. We help teams move away from manual coordination and toward systems that understand the workflow, handle variation, and keep work moving.",
+      "spotlightLabel": "How we think",
       "spotlight": [
-        ["Operations first", "We learn the workflow before we design the system."],
-        ["Built for exceptions", "Real workflows have edge cases. Ours handle them."],
-        ["Production is the goal", "A system that works in a demo but breaks in production is not a system."]
+        ["Operations first", "We understand the workflow before we design the system."],
+        ["Built for exceptions", "Real workflows are messy. The system has to work anyway."],
+        ["Production matters", "A demo is not enough. The system must survive real data, real users, and real edge cases."]
       ],
+      "principleIcons": ["layers", "approval", "report"],
       "principles": [
-        ["Industry depth", "We have built inside freight and logistics operations — one of the most document-heavy, exception-prone environments in business."],
-        ["Outcome ownership", "We measure success by whether the workflow actually changed, not by what got shipped."],
-        ["Real handover", "When we finish, your team runs it independently. That is part of the build, not an afterthought."]
+        ["Domain learning", "We go deep into the way a business operates before we build around it."],
+        ["Outcome ownership", "We care whether the workflow actually changes, not just whether software gets shipped."],
+        ["Real handover", "Your team should be able to run the system independently. That is part of the build."]
       ]
     },
     "featured": {
       "label": "Featured product",
-      "liveLabel": "Live in production",
+      "liveLabel": "Built for live workflows",
       "product": "CargoMatiq",
-      "title": "Vendor invoice reconciliation for freight forwarders — done automatically.",
-      "description": "CargoMatiq reads vendor statements in any format, extracts invoice data, reconciles against your internal records, and produces a clean report your AP team can act on the same day. No spreadsheet required.",
+      "title": "Freight reconciliation without the spreadsheet marathon.",
+      "description": "CargoMatiq reads vendor statements in messy real-world formats, extracts invoice data, reconciles against internal records, and produces a clean report your AP team can act on immediately.",
       "primaryCta": "Explore CargoMatiq",
       "secondaryCta": "Discuss a similar workflow",
-      "snapshotLabel": "Live reconciliation snapshot",
-      "snapshotStatus": "Running",
+      "snapshotLabel": "Reconciliation snapshot",
+      "snapshotStatus": "Processing",
       "snapshotStats": [
         ["54", "Invoices processed"],
-        ["46", "Automatically matched"],
+        ["46", "Matched automatically"],
         ["3", "Flagged for review"]
       ],
       "snapshotRows": [
         ["Quick Logistics", "Matched to vendor statement"],
-        ["North Port Carriers", "Tolerance match — flagged"],
+        ["North Port Carriers", "Tolerance match flagged"],
         ["Apex Freight", "Missing in ledger"]
       ]
     },
     "process": {
       "label": "How we work",
-      "title": "From first conversation to a live system in your operations.",
+      "title": "We start with the workflow.",
       "introLabel": "The engagement",
-      "introTitle": "We start with the workflow, not with a proposal.",
-      "introBody": "Before we scope anything, we spend time understanding how the work actually moves — the tools, the exceptions, the parts that depend on people who should not be the single point of failure.",
+      "introTitle": "No proposal before understanding the work.",
+      "introBody": "Before we scope anything, we learn how the work moves today — the tools involved, the exceptions that slow it down, and the handoffs that quietly depend on people.",
+      "engagementShapeLabel": "Engagement shape",
+      "engagementShapeBody": "One workflow, one accountable build, one live outcome.",
+      "deliveryPrincipleLabel": "Delivery principle",
+      "deliveryPrincipleBody": "Simple for operators. Clear for leadership.",
       "steps": [
-        ["01", "Find the workflow worth fixing", "We look for where repetitive work, inconsistency, and operational risk are concentrated. That is where we start."],
-        ["02", "Design around reality", "We model the workflow with real inputs, real exceptions, and the integrations your team already uses."],
-        ["03", "Build against live data", "The system is built and tested on the formats and constraints your operations already deal with — not on clean test data."],
-        ["04", "Deploy and hand over", "Deployment, team training, and documentation are part of the engagement. You do not need us to keep it running."]
+        ["01", "Find the drag", "We identify where repetitive work, inconsistency, and operational risk are concentrated."],
+        ["02", "Design around reality", "We model the workflow around real inputs, real exceptions, and the tools your team already uses."],
+        ["03", "Build on real data", "We test the system against the formats, edge cases, and constraints your operations already deal with."],
+        ["04", "Deploy and hand over", "Deployment, documentation, and team training are part of the build — not an afterthought."]
       ]
     },
     "contact": {
       "label": "Contact",
-      "title": "Tell us about the workflow.",
-      "description": "Which process is still manual? Where does the team lose time every week? That is enough to start. Discovery is free and there is no commitment.",
+      "title": "Tell us where the workflow breaks.",
+      "description": "What is still manual? Where does the team lose time every week? Which process slows down when volume increases? That is enough to start.",
       "generalLabel": "General enquiries",
       "locationLabel": "Location",
       "formTitle": "Book a discovery session",
-      "formDescription": "Describe the workflow, what is manual today, and where things slow down. We will come back with a clear view on what automation could look like for your operations.",
+      "formDescription": "Describe the workflow, what is manual today, and where the team loses time. We will come back with a clear view on what automation could look like.",
       "formButton": "Send request"
     }
   },
   "cargo": {
     "hero": {
       "label": "Product · Freight Operations",
-      "liveLabel": "Live in production",
+      "liveLabel": "Built for live workflows",
       "name": "CargoMatiq",
-      "subtitle": "Autonomous reconciliation",
-      "title": "Freight invoice reconciliation that runs itself.",
-      "description": "Freight forwarders deal with dozens of vendors, each sending statements in a different format. CargoMatiq reads them all, matches every line against your internal records, and hands your AP team a clean report — without the monthly spreadsheet marathon.",
+      "subtitle": "Freight reconciliation automation",
+      "title": "Freight reconciliation, without the spreadsheet work.",
+      "description": "CargoMatiq reads vendor statements, extracts invoice data, matches it against internal records, and turns messy reconciliation into a clean exception-ready report.",
       "primaryCta": "Request access",
       "secondaryCta": "See how it works",
       "consoleLabel": "Reconciliation console",
-      "consoleStatus": "Reconciling",
+      "consoleStatus": "Processing",
       "proofStats": [
-        ["300", "+", "Hours of AP work removed every month"],
-        ["100", "+", "Vendor formats handled — Excel, PDF, email, reply chains"],
-        ["1", " day", "From vendor statement to action-ready reconciliation output"],
-        ["4", "", "Steps from intake to final report — fully automated"]
+        ["54", "", "Statement lines processed"],
+        ["46", "", "Automatically matched"],
+        ["5", "", "Tolerance matched"],
+        ["3", "", "Flagged for review"]
       ],
       "batchLabel": "Current vendor batch",
       "batchRows": [
@@ -183,39 +204,39 @@
       ]
     },
     "fit": {
-      "label": "Is CargoMatiq right for you?",
-      "title": "Built for freight operators who reconcile manually every month.",
+      "label": "Best fit",
+      "title": "For freight teams still reconciling manually.",
       "items": [
-        "You manage multiple active vendors with recurring statement reconciliation",
-        "Your AP or finance team still works across inboxes and spreadsheets to close the month",
-        "You need faster close cycles and cleaner visibility into what needs attention",
-        "You want consistent output without asking your vendors to change how they send things"
+        "You manage recurring vendor statements every month",
+        "Your AP team still closes reconciliation across inboxes, spreadsheets, and exports",
+        "You need faster visibility into what is matched, missing, disputed, or ready to pay",
+        "You want automation without forcing vendors to change how they send statements"
       ]
     },
     "why": {
       "label": "Why it matters",
-      "title": "Manual reconciliation breaks because the input never cooperates.",
-      "description": "Vendor statements arrive in every format imaginable. Context gets buried in five-level email chains. Finance teams end up spending their judgment on cleaning and sorting data instead of on the decisions the data is supposed to support.",
+      "title": "The hard part is not matching. It is the mess before matching.",
+      "description": "Vendor statements arrive as Excel files, PDFs, email tables, and old reply chains. Headers vary. Amount formats differ. Context gets buried. By the time reconciliation starts, the team has already spent hours just preparing the data.",
       "capabilities": [
         "Reads email, PDF, Excel, HTML tables, and Outlook reply chains",
-        "Handles vendor-specific format variation without template setup",
-        "Two-pass reconciliation against your Logisys and BT system exports",
-        "Mismatch classification, dispute flagging, and payment packet generation"
+        "Handles vendor-specific formats without template setup",
+        "Runs exact and tolerance-aware reconciliation against internal exports",
+        "Flags mismatches, disputes, missing entries, and payment-ready lines"
       ]
     },
     "steps": {
       "label": "How it works",
-      "title": "Four steps. No manual work in between.",
+      "title": "From statement to report.",
       "items": [
-        ["01 Ingest", "CargoMatiq accepts the source exactly as it arrives.", "Vendor emails, Excel attachments, PDF statements, HTML body tables, and Outlook reply chains — all read without requiring any reformatting from your team first."],
-        ["02 Extract", "Every line becomes structured invoice data.", "Invoice number, date, amount, and vendor context are extracted even when the format is inconsistent, merged, or buried in a reply chain five levels deep."],
-        ["03 Reconcile", "Every line is matched against your internal records.", "Exact matches are cleared first. Tolerance-aware logic handles rounding and minor discrepancies. What remains is a short, clear list of what actually needs a person's attention."],
-        ["04 Deliver", "Your AP team gets output they can act on immediately.", "Reconciliation report, dispute list, payment packet, and aging summary — in one place, ready to use, without copying data between five different tools."]
+        ["01 Ingest", "CargoMatiq accepts the source as it arrives.", "Vendor emails, Excel attachments, PDF statements, HTML body tables, and Outlook reply chains can be processed without asking your team to reformat them first."],
+        ["02 Extract", "Every usable line becomes structured invoice data.", "Invoice number, date, amount, and vendor context are extracted even when formats are inconsistent, merged, or buried inside a long email chain."],
+        ["03 Reconcile", "Every line is matched against internal records.", "Exact matches are cleared first. Tolerance-aware logic handles small rounding differences. What remains is a short list of exceptions that actually need attention."],
+        ["04 Deliver", "Your AP team gets output they can act on.", "Reconciliation report, dispute list, payment packet, and aging summary are generated in one place without copying data across tools."]
       ]
     },
     "proof": {
       "label": "By the numbers",
-      "title": "What a reconciliation cycle actually looks like.",
+      "title": "A cleaner way to close a vendor batch.",
       "sampleLabel": "Sample output — Quick Logistics batch",
       "sampleRows": [
         ["Vendor statement rows", "54"],
@@ -226,7 +247,7 @@
     },
     "form": {
       "title": "Request access to CargoMatiq",
-      "description": "Tell us about your current reconciliation process — vendor volume, formats you deal with, and how the month-end usually goes. We will review it and come back to you with next steps.",
+      "description": "Tell us how reconciliation works today — vendor volume, file formats, systems involved, and where month-end usually slows down. We will review it and get back with the right next step.",
       "button": "Send request"
     }
   }

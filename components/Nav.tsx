@@ -33,14 +33,14 @@ export function Nav() {
   }, [pathname]);
 
   const useDarkLogo = heroVisible && !scrolled && (pathname === "/" || pathname === "/cargomatiq");
-  const headerClass = scrolled ? "border-light-border bg-white/92 backdrop-blur-md" : "border-transparent bg-transparent";
+  const headerClass = scrolled ? "border-light-border bg-[rgba(252,252,249,0.92)] backdrop-blur-md" : "border-transparent bg-transparent";
   const linkClass = pathname === "/" && !scrolled ? "text-white/72 hover:text-white" : "text-ink-secondary hover:text-ink";
   const primaryLinks = siteCopy.nav.links;
 
   return (
     <>
       <header className={`sticky top-0 z-50 h-[68px] border-b transition-colors duration-200 ${headerClass}`}>
-        <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-5 sm:px-8">
+        <div className="section-container flex h-full items-center justify-between">
           <Link href="/" aria-label="Matiq Labs home">
             <Image src={useDarkLogo ? "/dark-mode-logo.png" : "/light-mode-logo.png"} alt="Matiq Labs" width={130} height={36} priority />
           </Link>
@@ -60,7 +60,7 @@ export function Nav() {
                 {siteCopy.nav.productsLabel}
               </button>
               {productsOpen ? (
-                <div className="absolute right-0 top-[calc(100%+12px)] min-w-[150px] rounded-2xl border border-light-border bg-white p-1.5 shadow-card">
+                <div className="absolute right-0 top-[calc(100%+12px)] min-w-[150px] rounded-[22px] border border-light-border bg-white p-1.5 shadow-card">
                   <Link
                     href="/cargomatiq"
                     onClick={() => setProductsOpen(false)}

@@ -19,20 +19,20 @@ export function Button({
   size?: "sm" | "md";
 }) {
   const variants = {
-    primary: "bg-brand text-white shadow-brand-sm hover:bg-brand-dark",
-    ghost: "border border-light-border bg-white text-ink hover:border-brand hover:bg-brand-light",
-    ghostDark: "border border-white/15 bg-white/[0.04] text-white hover:bg-white/[0.08]",
-    white: "bg-white text-brand shadow-brand-sm hover:bg-brand-light",
+    primary: "border border-brand bg-brand text-white shadow-brand-sm hover:bg-brand-dark hover:border-brand-dark",
+    ghost: "border border-light-border bg-white/95 text-ink hover:border-brand hover:bg-brand-light",
+    ghostDark: "border border-white/12 bg-white/[0.05] text-white hover:bg-white/[0.09]",
+    white: "border border-white/70 bg-white text-brand shadow-brand-sm hover:bg-brand-light",
   };
 
   const sizes = {
-    sm: "rounded-xl px-4 py-2.5 text-sm",
-    md: "rounded-2xl px-5 py-3.5 text-[15px]",
+    sm: "rounded-full px-4 py-2.5 text-sm",
+    md: "rounded-full px-5 py-3.5 text-[15px]",
   };
 
   return (
     <a
-      className={`group inline-flex items-center justify-center gap-2 font-body font-semibold transition-colors duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 font-body font-semibold transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     >
       {children}
@@ -54,8 +54,8 @@ export function SectionLabel({
   dark?: boolean;
 }) {
   return (
-    <div className={`mb-5 flex items-center gap-3 ${center ? "justify-center" : ""}`}>
-      <span className={`h-px w-9 ${dark ? "bg-white/40" : "bg-brand"}`} />
+    <div className={`mb-6 flex items-center gap-3 ${center ? "justify-center" : ""}`}>
+      <span className={`h-px w-10 ${dark ? "bg-white/35" : "bg-brand/70"}`} />
       <span className={`font-mono text-[11px] uppercase tracking-[0.14em] ${dark ? "text-white/70" : "text-brand"}`}>{children}</span>
     </div>
   );
@@ -91,13 +91,13 @@ export function Card({
   variant?: "default" | "dark" | "feature" | "highlight";
 }) {
   const variants = {
-    default: "border border-light-border bg-white p-8 shadow-card",
-    dark: "border border-white/10 bg-dark-elevated p-8 shadow-dark-card",
-    feature: "border border-[#dce5ff] bg-[linear-gradient(180deg,#ffffff_0%,#f7f9ff_100%)] p-8 shadow-card",
-    highlight: "border border-brand/15 bg-brand-light/55 p-8 shadow-card",
+    default: "ambient-panel luxury-ring border border-light-border bg-white p-6 shadow-card sm:p-8",
+    dark: "border border-white/10 bg-dark-elevated p-6 shadow-dark-card sm:p-8",
+    feature: "ambient-panel luxury-ring border border-light-border bg-[linear-gradient(180deg,#ffffff_0%,#f6f5ff_100%)] p-6 shadow-card sm:p-8",
+    highlight: "ambient-panel border border-brand/15 bg-[linear-gradient(180deg,rgba(232,233,254,0.92),rgba(216,219,255,0.54))] p-6 shadow-card sm:p-8",
   };
 
-  return <div className={`rounded-[28px] ${variants[variant]} ${className}`} {...props}>{children}</div>;
+  return <div className={`rounded-[30px] ${variants[variant]} ${className}`} {...props}>{children}</div>;
 }
 
 export function Chip({
@@ -112,9 +112,9 @@ export function Chip({
   className?: string;
 }) {
   const variants = {
-    light: "border-light-border bg-white text-ink-secondary",
+    light: "border-light-border bg-white text-ink-secondary shadow-[0_10px_24px_rgba(36,23,79,0.05)]",
     dark: "border-white/15 bg-white/[0.08] text-white/75",
-    status: "border-green/25 bg-green/10 text-green",
+    status: "border-brand/25 bg-brand/10 text-brand",
   };
 
   return (

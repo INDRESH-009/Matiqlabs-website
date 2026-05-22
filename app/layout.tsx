@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: siteCopy.meta.siteName,
   description: siteCopy.meta.description,
   keywords: siteCopy.meta.keywords,
+  icons: {
+    icon: "/matiq-icon.png",
+    shortcut: "/matiq-icon.png",
+    apple: "/matiq-icon.png",
+  },
   openGraph: {
     title: siteCopy.meta.siteName,
     description: siteCopy.meta.tagline,
