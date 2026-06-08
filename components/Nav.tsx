@@ -33,7 +33,7 @@ export function Nav() {
   }, [pathname]);
 
   const useDarkLogo = heroVisible && !scrolled && (pathname === "/" || pathname === "/cargomatiq");
-  const headerClass = scrolled ? "border-light-border bg-[rgba(252,252,249,0.92)] backdrop-blur-md" : "border-transparent bg-transparent";
+  const headerClass = scrolled ? "border-light-border bg-[rgba(255,247,232,0.92)] backdrop-blur-md" : "border-transparent bg-transparent";
   const linkClass = pathname === "/" && !scrolled ? "text-white/72 hover:text-white" : "text-ink-secondary hover:text-ink";
   const primaryLinks = siteCopy.nav.links;
 
@@ -60,7 +60,7 @@ export function Nav() {
                 {siteCopy.nav.productsLabel}
               </button>
               {productsOpen ? (
-                <div className="absolute right-0 top-[calc(100%+12px)] min-w-[150px] rounded-[22px] border border-light-border bg-white p-1.5 shadow-card">
+                <div className="absolute right-0 top-[calc(100%+12px)] min-w-[150px] rounded-[22px] border border-light-border bg-light p-1.5 shadow-card">
                   <Link
                     href="/cargomatiq"
                     onClick={() => setProductsOpen(false)}

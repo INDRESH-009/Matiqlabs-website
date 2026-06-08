@@ -19,10 +19,10 @@ export function Button({
   size?: "sm" | "md";
 }) {
   const variants = {
-    primary: "border border-brand bg-brand text-white shadow-brand-sm hover:bg-brand-dark hover:border-brand-dark",
-    ghost: "border border-light-border bg-white/95 text-ink hover:border-brand hover:bg-brand-light",
-    ghostDark: "border border-white/12 bg-white/[0.05] text-white hover:bg-white/[0.09]",
-    white: "border border-white/70 bg-white text-brand shadow-brand-sm hover:bg-brand-light",
+    primary: "border border-[#3657F6] bg-[#3657F6] text-white shadow-[0_18px_44px_rgba(54,87,246,0.22)] hover:border-[#2544D8] hover:bg-[#2544D8] hover:shadow-[0_16px_38px_rgba(54,87,246,0.2)]",
+    ghost: "border border-light-border bg-light/90 text-ink hover:border-brand hover:bg-brand-light",
+    ghostDark: "border border-white/12 bg-white/[0.05] text-white hover:border-teal/45 hover:bg-white/[0.09]",
+    white: "border border-white/70 bg-light text-brand shadow-brand-sm hover:border-teal hover:bg-brand-light",
   };
 
   const sizes = {
@@ -91,10 +91,10 @@ export function Card({
   variant?: "default" | "dark" | "feature" | "highlight";
 }) {
   const variants = {
-    default: "ambient-panel luxury-ring border border-light-border bg-white p-6 shadow-card sm:p-8",
+    default: "ambient-panel luxury-ring border border-light-border bg-light p-6 shadow-card sm:p-8",
     dark: "border border-white/10 bg-dark-elevated p-6 shadow-dark-card sm:p-8",
-    feature: "ambient-panel luxury-ring border border-light-border bg-[linear-gradient(180deg,#ffffff_0%,#f6f5ff_100%)] p-6 shadow-card sm:p-8",
-    highlight: "ambient-panel border border-brand/15 bg-[linear-gradient(180deg,rgba(232,233,254,0.92),rgba(216,219,255,0.54))] p-6 shadow-card sm:p-8",
+    feature: "ambient-panel luxury-ring border border-light-border bg-[linear-gradient(180deg,#FFF7E8_0%,#F8F0FF_100%)] p-6 shadow-card sm:p-8",
+    highlight: "ambient-panel border border-brand/15 bg-[linear-gradient(180deg,rgba(233,223,251,0.92),rgba(255,247,232,0.74))] p-6 shadow-card sm:p-8",
   };
 
   return <div className={`rounded-[30px] ${variants[variant]} ${className}`} {...props}>{children}</div>;
@@ -112,9 +112,9 @@ export function Chip({
   className?: string;
 }) {
   const variants = {
-    light: "border-light-border bg-white text-ink-secondary shadow-[0_10px_24px_rgba(36,23,79,0.05)]",
+    light: "border-light-border bg-light text-ink-secondary shadow-[0_10px_24px_rgba(34,31,47,0.05)]",
     dark: "border-white/15 bg-white/[0.08] text-white/75",
-    status: "border-brand/25 bg-brand/10 text-brand",
+    status: "border-teal/35 bg-teal/10 text-brand",
   };
 
   return (
@@ -134,7 +134,7 @@ export function StatCounter({
   suffix?: string;
   size?: string;
 }) {
-  return <span className={`font-display font-extrabold leading-none text-brand ${size}`}>{`${target}${suffix}`}</span>;
+  return <span className={`font-display font-extrabold leading-none text-teal ${size}`}>{`${target}${suffix}`}</span>;
 }
 
 export function Icon({

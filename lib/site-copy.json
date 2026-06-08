@@ -94,7 +94,6 @@
     "build": {
       "label": "What we build",
       "title": "AI systems built around how your business actually works.",
-      "footnote": "Mapped to real inputs, handoffs, exceptions, and outcomes",
       "cards": [
         ["search", "Workflow discovery", "We find where time, delay, and operational risk are concentrated before deciding what should be automated."],
         ["layers", "Custom AI systems", "We build around your actual workflow — the inputs, exceptions, approvals, and edge cases your team handles every day."],

@@ -7,12 +7,12 @@ const { cargo } = siteCopy;
 
 export function CargoMatiqPage() {
   return (
-    <main className="bg-white">
+    <main className="bg-light">
       <section data-hero className="relative overflow-hidden bg-dark-base px-5 pb-24 pt-32 text-white sm:px-8">
         <GradientOrb className="-right-56 top-0" size={620} opacity={0.18} blur={170} />
         <GradientOrb color="teal" className="-left-24 bottom-0" size={420} opacity={0.18} blur={150} />
         <div className="absolute inset-0 dark-grid opacity-35" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.1),transparent_28%),linear-gradient(180deg,#24174f_0%,#2d1b69_60%,#342281_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(91,61,245,0.28),transparent_30%),radial-gradient(circle_at_86%_18%,rgba(32,214,199,0.2),transparent_28%),radial-gradient(circle_at_74%_76%,rgba(255,107,90,0.08),transparent_24%),linear-gradient(180deg,#171326_0%,#221B38_58%,#171326_100%)]" />
         <div className="section-container relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="max-w-3xl">
             <SectionLabel dark>{cargo.hero.label}</SectionLabel>
@@ -34,8 +34,8 @@ export function CargoMatiqPage() {
               <Button href="#how-it-works" variant="ghostDark">{cargo.hero.secondaryCta} <Arrow /></Button>
             </div>
           </div>
-          <Card variant="dark" className="relative overflow-hidden border-white/10 bg-[linear-gradient(180deg,rgba(15,29,52,0.98),rgba(7,17,31,0.98))]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(159,138,243,0.22),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(171,164,247,0.12),transparent_38%)]" />
+          <Card variant="dark" className="relative overflow-hidden border-white/10 bg-[linear-gradient(180deg,rgba(45,36,72,0.98),rgba(23,19,38,0.98))]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(32,214,199,0.18),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(91,61,245,0.18),transparent_38%)]" />
             <div className="relative">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -86,7 +86,7 @@ export function CargoMatiqPage() {
                           <p className="mt-1 text-xs text-white/55">{detail}</p>
                         </div>
                       </div>
-                      <span className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] ${status === "Matched" ? "bg-green/15 text-green" : status === "Ready" ? "bg-brand/20 text-brand-light" : "bg-amber/15 text-amber"}`}>
+                      <span className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] ${status === "Matched" ? "bg-teal/15 text-teal" : status === "Ready" ? "bg-green/15 text-green" : "bg-amber/15 text-amber"}`}>
                         {status}
                       </span>
                     </div>
@@ -98,7 +98,7 @@ export function CargoMatiqPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-white">
+      <section className="section-shell bg-light">
         <div className="section-container grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <Card variant="feature" className="relative overflow-hidden">
             <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-brand/10 blur-3xl" />
@@ -108,9 +108,9 @@ export function CargoMatiqPage() {
               <p className="mt-5 max-w-3xl">{cargo.why.description}</p>
               <div className="mt-8 grid gap-4 md:grid-cols-2">
                 {cargo.why.capabilities.map((item, index) => (
-                  <div key={item} className="rounded-3xl border border-brand/10 bg-white px-5 py-5">
+                  <div key={item} className="rounded-3xl border border-brand/10 bg-light px-5 py-5">
                     <div className="flex items-start gap-4">
-                      <div className="grid h-10 w-10 place-items-center rounded-2xl bg-brand-light text-sm font-semibold text-brand">
+                      <div className="grid h-10 w-10 place-items-center rounded-2xl bg-teal/10 text-sm font-semibold text-brand">
                         {index + 1}
                       </div>
                       <p className="text-base font-semibold text-ink">{item}</p>
@@ -146,7 +146,7 @@ export function CargoMatiqPage() {
                   <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">{label}</p>
                   <h3 className="mt-5">{title}</h3>
                   <p className="mt-4 text-sm">{body}</p>
-                  <div className="mt-6 inline-flex rounded-full border border-brand/12 bg-white/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-brand">
+                  <div className="mt-6 inline-flex rounded-full border border-teal/25 bg-teal/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-brand">
                     {`Sequence ${index + 1}`}
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export function CargoMatiqPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-white">
+      <section className="section-shell bg-light">
         <div className="section-container grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <Card className="overflow-hidden">
             <SectionLabel>{cargo.proof.label}</SectionLabel>
@@ -168,7 +168,7 @@ export function CargoMatiqPage() {
               </div>
               <div className="mt-5 space-y-3">
                 {cargo.proof.sampleRows.map(([label, value]) => (
-                  <div key={label} className="flex items-center justify-between rounded-2xl bg-white px-4 py-3">
+                  <div key={label} className="flex items-center justify-between rounded-2xl bg-light px-4 py-3">
                     <span className="text-sm text-ink-secondary">{label}</span>
                     <span className="font-mono text-sm text-ink">{value}</span>
                   </div>

@@ -54,7 +54,7 @@ export function LeadCaptureForm({
   return (
     <div
       id={id}
-      className={`ambient-panel relative overflow-hidden rounded-[32px] border p-7 shadow-card ${dark ? "border-white/10 bg-white/[0.05] text-white" : "luxury-ring border-light-border bg-white text-ink"}`}
+      className={`ambient-panel relative overflow-hidden rounded-[32px] border p-7 shadow-card ${dark ? "border-white/10 bg-white/[0.05] text-white" : "luxury-ring border-light-border bg-light text-ink"}`}
     >
       <div className="relative">
         <div className="flex items-start justify-between gap-4">
@@ -65,7 +65,7 @@ export function LeadCaptureForm({
             <h3 className={`mt-4 text-[30px] ${dark ? "!text-white" : "text-ink"}`}>{title}</h3>
             <p className={`mt-3 max-w-xl text-sm ${dark ? "!text-white" : "text-ink-secondary"}`}>{description}</p>
           </div>
-          <div className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] ${dark ? "border-white/14 bg-white/[0.06] !text-white" : "border-brand/15 bg-brand-light text-brand"}`}>
+          <div className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] ${dark ? "border-teal/30 bg-teal/10 !text-white" : "border-teal/25 bg-teal/10 text-brand"}`}>
             Confidential
           </div>
         </div>
@@ -90,13 +90,13 @@ export function LeadCaptureForm({
             required
             name="name"
             placeholder={siteCopy.forms.namePlaceholder}
-            className={`${baseInput} ${dark ? "border-white/10 bg-white/[0.05] !text-white placeholder:!text-white focus:border-white/25 focus:bg-white/[0.08]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-white"}`}
+            className={`${baseInput} ${dark ? "border-white/10 bg-white/[0.05] !text-white placeholder:!text-white focus:border-teal/40 focus:bg-white/[0.08]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-light"}`}
           />
           <input
             required
             name="company"
             placeholder={siteCopy.forms.companyPlaceholder}
-            className={`${baseInput} ${dark ? "border-white/10 bg-white/[0.05] !text-white placeholder:!text-white focus:border-white/25 focus:bg-white/[0.08]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-white"}`}
+            className={`${baseInput} ${dark ? "border-white/10 bg-white/[0.05] !text-white placeholder:!text-white focus:border-teal/40 focus:bg-white/[0.08]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-light"}`}
           />
         </div>
         <input
@@ -104,25 +104,25 @@ export function LeadCaptureForm({
           type="email"
           name="email"
           placeholder={siteCopy.forms.emailPlaceholder}
-          className={`${baseInput} ${dark ? "border-white/10 bg-white/[0.05] !text-white placeholder:!text-white focus:border-white/25 focus:bg-white/[0.08]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-white"}`}
+          className={`${baseInput} ${dark ? "border-white/10 bg-white/[0.05] !text-white placeholder:!text-white focus:border-teal/40 focus:bg-white/[0.08]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-light"}`}
         />
         <textarea
           required
           name="details"
           rows={5}
           placeholder={intent === "access" ? siteCopy.forms.accessDetailsPlaceholder : siteCopy.forms.discoveryDetailsPlaceholder}
-          className={`${baseInput} resize-none ${dark ? "border-white/10 bg-white/[0.05] !text-white placeholder:!text-white focus:border-white/25 focus:bg-white/[0.08]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-white"}`}
+          className={`${baseInput} resize-none ${dark ? "border-white/10 bg-white/[0.05] !text-white placeholder:!text-white focus:border-teal/40 focus:bg-white/[0.08]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-light"}`}
         />
         <button
           type="submit"
           disabled={loading}
-          className={`inline-flex rounded-full px-5 py-3.5 text-sm font-semibold transition-all ${dark ? "bg-white text-ink hover:bg-brand-light" : "bg-brand text-white shadow-brand-sm hover:bg-brand-dark"} disabled:cursor-not-allowed disabled:opacity-70`}
+          className={`inline-flex rounded-full px-5 py-3.5 text-sm font-semibold transition-all ${dark ? "bg-light text-ink hover:bg-brand-light" : "bg-[#3657F6] text-white shadow-[0_18px_44px_rgba(54,87,246,0.22)] hover:bg-[#2544D8] hover:shadow-[0_16px_38px_rgba(54,87,246,0.2)]"} disabled:cursor-not-allowed disabled:opacity-70`}
         >
           {loading ? siteCopy.forms.sending : buttonLabel}
         </button>
       </form>
       {sent ? (
-        <p className={`mt-4 font-mono text-[11px] uppercase tracking-[0.12em] ${dark ? "!text-white" : "text-green"}`}>
+        <p className={`mt-4 inline-flex rounded-full border px-3 py-2 font-mono text-[11px] uppercase tracking-[0.12em] ${dark ? "border-green/25 bg-green/10 !text-green" : "border-green bg-green text-ink"}`}>
           {siteCopy.forms.success}
         </p>
       ) : null}

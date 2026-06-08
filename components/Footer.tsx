@@ -39,7 +39,7 @@ export function Footer() {
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/35">{siteCopy.footer.contactLabel}</p>
           <div className="mt-5 flex flex-col gap-4">
-            <a href={`mailto:${siteCopy.company.email}`} className="font-mono text-sm text-brand">{siteCopy.company.email}</a>
+            <a href={`mailto:${siteCopy.company.email}`} className="font-mono text-sm text-teal">{siteCopy.company.email}</a>
             <Link href="/#contact" className="group text-sm text-white transition-all duration-300">{siteCopy.nav.cta} <Arrow /></Link>
           </div>
         </div>

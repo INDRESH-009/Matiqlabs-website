@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${jakarta.variable} ${jetbrains.variable} antialiased`}>
-      <body className="min-h-screen bg-white text-ink">
+      <body className="min-h-screen bg-light text-ink">
         <Nav />
         {children}
         <Footer />

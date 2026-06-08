@@ -8,12 +8,12 @@ const { home } = siteCopy;
 
 export function HomePage() {
   return (
-    <main className="bg-white">
+    <main className="bg-light">
       <section data-hero className="hero-shell relative -mt-[68px] overflow-hidden bg-dark-base px-5 pb-24 pt-[120px] text-white sm:px-8 lg:pb-28">
         <GradientOrb className="right-[-180px] top-[-140px]" size={620} opacity={0.12} blur={190} />
         <GradientOrb color="teal" className="left-[-140px] bottom-[-180px]" size={500} opacity={0.08} blur={170} />
         <div className="hero-stars absolute inset-0 opacity-70" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_22%),linear-gradient(180deg,#101847_0%,#171f56_38%,#1f2a70_72%,#2a3689_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(91,61,245,0.26),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(32,214,199,0.18),transparent_26%),radial-gradient(circle_at_72%_72%,rgba(255,107,90,0.08),transparent_24%),linear-gradient(180deg,#171326_0%,#1d1730_48%,#171326_100%)]" />
         <div className="hero-mesh absolute inset-x-0 top-[64px] h-[260px] opacity-35" />
         <div className="hero-stage absolute inset-x-0 bottom-[96px] h-[300px] opacity-55" />
         <div className="hero-glow absolute left-1/2 top-[58%] h-[520px] w-[680px] -translate-x-1/2 rounded-full" />
@@ -72,8 +72,8 @@ export function HomePage() {
               <p className="mt-6 max-w-2xl">{home.problem.description}</p>
               <div className="mt-8 grid gap-4 md:grid-cols-3">
                 {home.problem.kpis.map(([value, label, body]) => (
-                  <div key={label} className="luxury-ring rounded-[26px] bg-white px-5 py-5">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-brand">{label}</p>
+                  <div key={label} className="luxury-ring rounded-[26px] bg-light px-5 py-5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-red">{label}</p>
                     <p className="mt-3 text-3xl font-extrabold text-ink">{value}</p>
                     <p className="mt-2 max-w-[12rem] text-sm text-ink-secondary">{body}</p>
                   </div>
@@ -91,17 +91,17 @@ export function HomePage() {
               </div>
             </div>
             <Card variant="feature" className="relative h-full overflow-hidden">
-              <div className="absolute inset-x-8 top-0 h-32 rounded-full bg-brand/12 blur-3xl" />
+              <div className="absolute inset-x-8 top-0 h-32 rounded-full bg-red/12 blur-3xl" />
               <div className="relative flex h-full flex-col">
                 <div className="flex items-center justify-between gap-4">
                   <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">{home.problem.signalLabel}</p>
-                  <div className="rounded-full border border-brand/15 bg-white/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-brand">
+                  <div className="rounded-full border border-amber/30 bg-amber/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink">
                     {home.problem.signalBadge}
                   </div>
                 </div>
                 <h3 className="mt-5 max-w-md">{home.problem.signalTitle}</h3>
                 <p className="mt-4 max-w-lg">{home.problem.signalBody}</p>
-                <div className="mt-8 flex flex-1 flex-col justify-center rounded-[26px] border border-light-border bg-white/90 p-5">
+                <div className="mt-8 flex flex-1 flex-col justify-center rounded-[26px] border border-light-border bg-light/90 p-5">
                   <div className="flex items-center justify-between gap-4">
                     <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">{home.problem.capacityLabel}</p>
                     <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">{home.problem.capacityMeta}</span>
@@ -113,8 +113,8 @@ export function HomePage() {
                           <span>{label}</span>
                           <span className="font-mono text-ink">{value}%</span>
                         </div>
-                        <div className="h-2.5 rounded-full bg-brand/8">
-                          <div className="h-full rounded-full bg-brand" style={{ width: `${value}%` }} />
+                        <div className="h-2.5 rounded-full bg-red/10">
+                          <div className="h-full rounded-full bg-[linear-gradient(90deg,#FF6B5A_0%,#FFB84D_100%)]" style={{ width: `${value}%` }} />
                         </div>
                       </div>
                     ))}
@@ -135,8 +135,8 @@ export function HomePage() {
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {home.build.cards.map(([icon, title, body], index) => (
               <Card key={title} variant="feature" className="relative overflow-hidden">
-                <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-brand/10 blur-3xl" />
-                <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-brand/22 via-brand/8 to-transparent" />
+                <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-teal/12 blur-3xl" />
+                <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-teal/30 via-brand/12 to-transparent" />
                 <div className="relative">
                   <div className="flex items-start justify-between gap-4">
                     <div className="grid h-14 w-14 place-items-center rounded-2xl bg-brand text-white shadow-brand-sm">
@@ -148,10 +148,6 @@ export function HomePage() {
                   </div>
                   <h3 className="mt-6">{title}</h3>
                   <p className="mt-4 text-sm">{body}</p>
-                  <div className="mt-8 flex items-center gap-3 text-[13px] text-ink-secondary">
-                    <span className="h-2 w-2 rounded-full bg-brand/55" />
-                    <span>{home.build.footnote}</span>
-                  </div>
                 </div>
               </Card>
             ))}
@@ -159,11 +155,11 @@ export function HomePage() {
         </div>
       </section>
 
-      <section id="about" className="section-shell-tight bg-white">
+      <section id="about" className="section-shell-tight bg-light">
         <div className="section-container">
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <Card className="relative overflow-hidden">
-              <div className="absolute -right-10 top-10 h-36 w-36 rounded-full bg-teal/14 blur-3xl" />
+              <div className="absolute -right-10 top-10 h-36 w-36 rounded-full bg-teal/16 blur-3xl" />
               <div className="relative max-w-2xl">
                 <SectionLabel>{home.about.label}</SectionLabel>
                 <h2>{home.about.title}</h2>
@@ -175,7 +171,7 @@ export function HomePage() {
               <div className="mt-6 space-y-5">
                 {home.about.spotlight.map(([title, body], index) => (
                   <div key={title} className="grid gap-4 border-b border-brand/10 pb-5 last:border-b-0 last:pb-0 sm:grid-cols-[auto_1fr]">
-                    <div className="grid h-10 w-10 place-items-center rounded-full border border-brand/20 bg-white/75 text-sm font-semibold text-brand">
+                    <div className="grid h-10 w-10 place-items-center rounded-full border border-teal/35 bg-teal/10 text-sm font-semibold text-brand">
                       {index + 1}
                     </div>
                     <div>
@@ -217,11 +213,11 @@ export function HomePage() {
               <h3 className="mt-5">{home.process.introTitle}</h3>
               <p className="mt-4 text-sm">{home.process.introBody}</p>
               <div className="mt-8 space-y-4">
-                <div className="rounded-[24px] border border-light-border bg-white/80 px-5 py-4">
+                <div className="rounded-[24px] border border-light-border bg-light/80 px-5 py-4">
                   <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-brand">{home.process.engagementShapeLabel}</p>
                   <p className="mt-2 text-sm font-semibold text-ink">{home.process.engagementShapeBody}</p>
                 </div>
-                <div className="rounded-[24px] border border-light-border bg-white/80 px-5 py-4">
+                <div className="rounded-[24px] border border-light-border bg-light/80 px-5 py-4">
                   <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-brand">{home.process.deliveryPrincipleLabel}</p>
                   <p className="mt-2 text-sm font-semibold text-ink">{home.process.deliveryPrincipleBody}</p>
                 </div>
