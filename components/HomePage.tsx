@@ -13,7 +13,7 @@ export function HomePage() {
         <GradientOrb className="right-[-180px] top-[-140px]" size={620} opacity={0.12} blur={190} />
         <GradientOrb color="teal" className="left-[-140px] bottom-[-180px]" size={500} opacity={0.08} blur={170} />
         <div className="hero-stars absolute inset-0 opacity-70" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_22%),linear-gradient(180deg,#1d1140_0%,#24174f_38%,#2d1b69_72%,#342281_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_22%),linear-gradient(180deg,#101847_0%,#171f56_38%,#1f2a70_72%,#2a3689_100%)]" />
         <div className="hero-mesh absolute inset-x-0 top-[64px] h-[260px] opacity-35" />
         <div className="hero-stage absolute inset-x-0 bottom-[96px] h-[300px] opacity-55" />
         <div className="hero-glow absolute left-1/2 top-[58%] h-[520px] w-[680px] -translate-x-1/2 rounded-full" />
@@ -21,12 +21,12 @@ export function HomePage() {
           <div className="mx-auto flex max-w-5xl flex-col items-center py-10 text-center lg:py-16">
             <SectionLabel dark center>{home.hero.label}</SectionLabel>
             <h1 className="max-w-4xl text-white drop-shadow-[0_10px_32px_rgba(0,0,0,0.45)]">{home.hero.title}</h1>
-            <p className="mt-5 max-w-2xl text-[18px] leading-8 text-white/68">{home.hero.description}</p>
+            <p className="mt-5 max-w-2xl text-[18px] leading-8 !text-white">{home.hero.description}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button href="#contact">{home.hero.primaryCta}</Button>
               <Button href="/cargomatiq" variant="ghostDark">{home.hero.secondaryCta} <Arrow /></Button>
             </div>
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-xs text-white/42">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-xs !text-white">
               {home.hero.pills.map((pill, index) => (
                 <div key={pill} className="contents">
                   {index > 0 ? <span className="h-1 w-1 rounded-full bg-white/25" /> : null}
@@ -254,16 +254,16 @@ export function HomePage() {
           <div className="py-4 text-white">
             <SectionLabel dark>{home.contact.label}</SectionLabel>
             <h2 className="text-white">{home.contact.title}</h2>
-            <p className="mt-5 max-w-xl text-white/70">{home.contact.description}</p>
+            <p className="mt-5 max-w-xl !text-white">{home.contact.description}</p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/55">{home.contact.generalLabel}</p>
-                <a href={`mailto:${siteCopy.company.email}`} className="mt-3 block text-lg font-semibold text-white">{siteCopy.company.email}</a>
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] !text-white">{home.contact.generalLabel}</p>
+                <a href={`mailto:${siteCopy.company.email}`} className="mt-3 block text-lg font-semibold !text-white">{siteCopy.company.email}</a>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/55">{home.contact.locationLabel}</p>
-                <p className="mt-3 text-lg font-semibold text-white">{siteCopy.company.location}</p>
-                <p className="mt-1 text-sm text-white/55">{siteCopy.company.locationNote}</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] !text-white">{home.contact.locationLabel}</p>
+                <p className="mt-3 text-lg font-semibold !text-white">{siteCopy.company.location}</p>
+                <p className="mt-1 text-sm !text-white">{siteCopy.company.locationNote}</p>
               </div>
             </div>
           </div>
