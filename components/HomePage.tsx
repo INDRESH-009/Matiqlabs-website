@@ -1,7 +1,7 @@
 import Image from "next/image";
-import cargoShowcase from "@/public/cargomatiq-showcase.png";
 import siteCopy from "@/lib/site-copy.json";
-import { Arrow, Button, Card, Chip, GradientOrb, Icon, SectionLabel } from "@/components/ui";
+import ColorBends from "@/components/ColorBends";
+import { GradientOrb, SectionLabel } from "@/components/ui";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 
 const { home } = siteCopy;
@@ -9,266 +9,172 @@ const { home } = siteCopy;
 export function HomePage() {
   return (
     <main className="bg-light">
-      <section data-hero className="hero-shell relative -mt-[68px] overflow-hidden bg-dark-base px-5 pb-24 pt-[120px] text-white sm:px-8 lg:pb-28">
-        <GradientOrb className="right-[-180px] top-[-140px]" size={620} opacity={0.12} blur={190} />
-        <GradientOrb color="teal" className="left-[-140px] bottom-[-180px]" size={500} opacity={0.08} blur={170} />
-        <div className="hero-stars absolute inset-0 opacity-70" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(91,61,245,0.26),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(32,214,199,0.18),transparent_26%),radial-gradient(circle_at_72%_72%,rgba(255,107,90,0.08),transparent_24%),linear-gradient(180deg,#171326_0%,#1d1730_48%,#171326_100%)]" />
-        <div className="hero-mesh absolute inset-x-0 top-[64px] h-[260px] opacity-35" />
-        <div className="hero-stage absolute inset-x-0 bottom-[96px] h-[300px] opacity-55" />
-        <div className="hero-glow absolute left-1/2 top-[58%] h-[520px] w-[680px] -translate-x-1/2 rounded-full" />
-        <div className="section-container relative">
-          <div className="mx-auto flex max-w-5xl flex-col items-center py-10 text-center lg:py-16">
+      <section data-hero className="hero-redesign relative -mt-[86px] min-h-screen overflow-hidden bg-[#171326] px-5 pt-[86px] text-white sm:px-8">
+        <ColorBends
+          className="hero-color-bends absolute inset-0 z-0"
+          colors={["#5b3df5", "#8a5cff", "#20d6c7"]}
+          rotation={90}
+          speed={0.2}
+          scale={1}
+          frequency={1}
+          warpStrength={1}
+          mouseInfluence={1}
+          noise={0.15}
+          parallax={0.5}
+          iterations={1}
+          intensity={1.5}
+          bandWidth={6}
+          transparent
+        />
+        <div className="hero-color-bends-contrast absolute inset-0 z-[1]" />
+        <div className="section-container relative z-10">
+          <div className="mx-auto flex min-h-[calc(100vh-86px)] max-w-6xl flex-col items-center justify-center py-8 text-center">
             <SectionLabel dark center>{home.hero.label}</SectionLabel>
-            <h1 className="max-w-4xl text-white drop-shadow-[0_10px_32px_rgba(0,0,0,0.45)]">{home.hero.title}</h1>
-            <p className="mt-5 max-w-2xl text-[18px] leading-8 !text-white">{home.hero.description}</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button href="#contact">{home.hero.primaryCta}</Button>
-              <Button href="/cargomatiq" variant="ghostDark">{home.hero.secondaryCta} <Arrow /></Button>
-            </div>
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-xs !text-white">
-              {home.hero.pills.map((pill, index) => (
-                <div key={pill} className="contents">
-                  {index > 0 ? <span className="h-1 w-1 rounded-full bg-white/25" /> : null}
-                  <span>{pill}</span>
-                </div>
-              ))}
-            </div>
-            <div className="hero-product-shell relative mt-14 w-full max-w-5xl overflow-hidden rounded-[28px] shadow-[0_40px_120px_rgba(0,0,0,0.48)] sm:mt-16">
-              <div className="hero-product-aura absolute inset-x-12 bottom-[-72px] h-36 rounded-full" />
-              <div className="hero-product-beam absolute inset-x-[12%] top-0 h-24" />
-              <div className="hero-product-frame relative overflow-hidden rounded-[22px]">
-                <div className="hero-browser-bar flex items-center justify-between border-b border-white/8 px-4 py-3 sm:px-5">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red/80" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-amber/80" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-green/80" />
-                  </div>
-                  <div className="rounded-full border border-white/8 bg-white/[0.03] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-white/44">
-                    {home.hero.previewLabel}
-                  </div>
-                </div>
-                <div className="hero-shot relative overflow-hidden rounded-b-[22px]">
-                  <Image
-                    src={cargoShowcase}
-                    alt="CargoMatiq product workflow screenshot"
-                    className="h-auto w-full"
-                    priority
-                  />
-                  <div className="hero-shot-darken absolute inset-x-0 bottom-0 h-[46%]" />
-                </div>
-              </div>
-            </div>
+            <h1 className="max-w-6xl text-[clamp(58px,8.8vw,122px)] leading-[0.9] text-white drop-shadow-[0_14px_40px_rgba(0,0,0,0.42)]">
+              <span className="block">Do more with the team</span>
+              <span className="hero-title-accent mt-5 block sm:mt-7">You already have.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-[18px] leading-8 !text-white/82">{home.hero.description}</p>
           </div>
         </div>
       </section>
 
       <section className="section-shell bg-light-surface">
         <div className="section-container">
-          <div className="grid gap-6 xl:grid-cols-[1.08fr_0.92fr] xl:items-stretch">
-            <div className="section-rail pl-6 sm:pl-8">
-              <SectionLabel>{home.problem.label}</SectionLabel>
-              <h2 className="max-w-3xl xl:max-w-[44rem]">{home.problem.title}</h2>
-              <p className="mt-6 max-w-2xl">{home.problem.description}</p>
-              <div className="mt-8 grid gap-4 md:grid-cols-3">
-                {home.problem.kpis.map(([value, label, body]) => (
-                  <div key={label} className="luxury-ring rounded-[26px] bg-light px-5 py-5">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-red">{label}</p>
-                    <p className="mt-3 text-3xl font-extrabold text-ink">{value}</p>
-                    <p className="mt-2 max-w-[12rem] text-sm text-ink-secondary">{body}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-7">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">{home.problem.stackLabel}</p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {home.problem.stack.map((item) => (
-                    <Chip key={item}>
-                      {item}
-                    </Chip>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <Card variant="feature" className="relative h-full overflow-hidden">
-              <div className="absolute inset-x-8 top-0 h-32 rounded-full bg-red/12 blur-3xl" />
-              <div className="relative flex h-full flex-col">
-                <div className="flex items-center justify-between gap-4">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">{home.problem.signalLabel}</p>
-                  <div className="rounded-full border border-amber/30 bg-amber/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink">
-                    {home.problem.signalBadge}
-                  </div>
-                </div>
-                <h3 className="mt-5 max-w-md">{home.problem.signalTitle}</h3>
-                <p className="mt-4 max-w-lg">{home.problem.signalBody}</p>
-                <div className="mt-8 flex flex-1 flex-col justify-center rounded-[26px] border border-light-border bg-light/90 p-5">
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">{home.problem.capacityLabel}</p>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">{home.problem.capacityMeta}</span>
-                  </div>
-                  <div className="mt-5 space-y-4">
-                    {home.problem.capacityBars.map(([label, value]) => (
-                      <div key={label}>
-                        <div className="mb-2 flex items-center justify-between text-sm text-ink-secondary">
-                          <span>{label}</span>
-                          <span className="font-mono text-ink">{value}%</span>
-                        </div>
-                        <div className="h-2.5 rounded-full bg-red/10">
-                          <div className="h-full rounded-full bg-[linear-gradient(90deg,#FF6B5A_0%,#FFB84D_100%)]" style={{ width: `${value}%` }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" className="section-shell bg-light-surface">
-        <div className="section-container">
-          <div className="max-w-3xl">
-            <SectionLabel>{home.build.label}</SectionLabel>
-            <h2>{home.build.title}</h2>
-          </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {home.build.cards.map(([icon, title, body], index) => (
-              <Card key={title} variant="feature" className="relative overflow-hidden">
-                <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-teal/12 blur-3xl" />
-                <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-teal/30 via-brand/12 to-transparent" />
-                <div className="relative">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="grid h-14 w-14 place-items-center rounded-2xl bg-brand text-white shadow-brand-sm">
-                      <Icon name={icon as "search"} />
-                    </div>
-                    <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand/70">
-                      {`0${index + 1}`}
-                    </div>
-                  </div>
-                  <h3 className="mt-6">{title}</h3>
-                  <p className="mt-4 text-sm">{body}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="section-shell-tight bg-light">
-        <div className="section-container">
-          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-            <Card className="relative overflow-hidden">
-              <div className="absolute -right-10 top-10 h-36 w-36 rounded-full bg-teal/16 blur-3xl" />
-              <div className="relative max-w-2xl">
-                <SectionLabel>{home.about.label}</SectionLabel>
-                <h2>{home.about.title}</h2>
-                <p className="mt-6">{home.about.description}</p>
-              </div>
-            </Card>
-            <Card variant="highlight">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">{home.about.spotlightLabel}</p>
-              <div className="mt-6 space-y-5">
-                {home.about.spotlight.map(([title, body], index) => (
-                  <div key={title} className="grid gap-4 border-b border-brand/10 pb-5 last:border-b-0 last:pb-0 sm:grid-cols-[auto_1fr]">
-                    <div className="grid h-10 w-10 place-items-center rounded-full border border-teal/35 bg-teal/10 text-sm font-semibold text-brand">
-                      {index + 1}
-                    </div>
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand">The Reality</p>
+              <h2 className="mt-5 max-w-3xl">Most businesses are still powered by manual work.</h2>
+              <p className="mt-6 max-w-2xl text-[17px]">
+                Emails, spreadsheets, documents, approvals, and follow-ups quietly slow down how work moves. AI can change that — when it is built into the workflow, not added on top of it.
+              </p>
+              <div className="mt-10 max-w-2xl divide-y divide-light-border border-y border-light-border">
+                {[
+                  ["01", "Work is scattered", "Critical information lives across tools, files, inboxes, and people."],
+                  ["02", "Teams move slower", "Time gets lost in checking, copying, cleaning, and chasing."],
+                  ["03", "Growth gets expensive", "More volume usually means more coordination, more people, and more overhead."],
+                ].map(([number, title, body]) => (
+                  <div key={title} className="grid gap-4 py-5 sm:grid-cols-[3rem_1fr]">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand/65">{number}</span>
                     <div>
-                      <p className="text-base font-semibold text-ink">{title}</p>
-                      <p className="mt-2 text-sm">{body}</p>
+                      <p className="text-base font-semibold leading-snug text-ink">{title}</p>
+                      <p className="mt-1 text-sm leading-6 text-ink-secondary">{body}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </Card>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-8 rounded-full bg-brand/10 blur-3xl" />
+              <div className="luxury-ring relative overflow-hidden rounded-[28px] border border-light-border bg-light/78 p-3 shadow-card backdrop-blur-md">
+                <Image
+                  src="/problem-img.png"
+                  alt="Manual work scattered across emails, spreadsheets, approvals, and reports"
+                  width={920}
+                  height={720}
+                  className="h-auto w-full rounded-[22px]"
+                />
+              </div>
+            </div>
           </div>
-          <Card variant="feature" className="mt-6">
-            <div className="grid gap-6 lg:grid-cols-3">
-              {home.about.principles.map(([title, body], index) => (
-                <div key={title} className="border-b border-light-border pb-5 last:border-b-0 lg:border-b-0 lg:border-r lg:pr-6 last:lg:border-r-0">
-                  <div className="flex items-center gap-3">
-                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand text-white shadow-brand-sm">
-                      <Icon name={home.about.principleIcons[index] as "layers" | "approval" | "report"} />
+        </div>
+      </section>
+
+      <section id="services" className="section-shell relative bg-light-surface">
+        <span id="about" className="absolute -top-20" aria-hidden="true" />
+        <div className="section-container">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="max-w-2xl">
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand">What We Build</p>
+              <h2 className="mt-5">AI systems for the work your business repeats every day.</h2>
+              <p className="mt-6 text-[17px]">
+                We design, build, and deploy AI automations around your real workflows — from messy inputs to reliable execution.
+              </p>
+            </div>
+            <div className="divide-y divide-light-border border-y border-light-border">
+              {[
+                ["01", "Workflow Discovery", "We map where time, cost, and manual decisions slow your business down."],
+                ["02", "AI Automation Systems", "We build agents and workflows that process inputs, make decisions, route exceptions, and move work forward."],
+                ["03", "Deployment & Handover", "We deploy into your existing workflow, train your team, and leave you with a system your team can actually use."],
+              ].map(([number, title, body]) => (
+                <div key={title} className="group grid gap-5 py-8 transition-colors duration-300 sm:grid-cols-[4rem_1fr]">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand/65 transition-colors duration-300 group-hover:text-brand">{number}</span>
+                  <div className="grid gap-3 md:grid-cols-[0.68fr_1fr] md:gap-8">
+                    <h3 className="text-[24px] leading-tight">{title}</h3>
+                    <div>
+                      <p className="text-sm leading-7 text-ink-secondary">{body}</p>
+                      <div className="mt-5 h-px w-12 bg-gradient-to-r from-brand/40 to-teal/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
-                    <h3 className="max-w-[15rem]">{title}</h3>
                   </div>
-                  <p className="mt-4 text-sm">{body}</p>
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
       <section className="section-shell bg-light-surface">
         <div className="section-container">
-          <div className="max-w-3xl">
-            <SectionLabel>{home.process.label}</SectionLabel>
-            <h2>{home.process.title}</h2>
-          </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-12">
-            <Card className="lg:col-span-5">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">{home.process.introLabel}</p>
-              <h3 className="mt-5">{home.process.introTitle}</h3>
-              <p className="mt-4 text-sm">{home.process.introBody}</p>
-              <div className="mt-8 space-y-4">
-                <div className="rounded-[24px] border border-light-border bg-light/80 px-5 py-4">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-brand">{home.process.engagementShapeLabel}</p>
-                  <p className="mt-2 text-sm font-semibold text-ink">{home.process.engagementShapeBody}</p>
-                </div>
-                <div className="rounded-[24px] border border-light-border bg-light/80 px-5 py-4">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-brand">{home.process.deliveryPrincipleLabel}</p>
-                  <p className="mt-2 text-sm font-semibold text-ink">{home.process.deliveryPrincipleBody}</p>
-                </div>
-              </div>
-            </Card>
-            <div className="grid gap-6 lg:col-span-7 md:grid-cols-2">
-              {home.process.steps.map(([step, title, body], index) => (
-                <Card key={step} variant={index % 2 === 0 ? "feature" : "default"} className="relative overflow-hidden">
-                  <div className="absolute right-4 top-4 text-6xl font-extrabold text-brand/10">{step}</div>
-                  <div className="absolute left-8 top-0 h-full w-px bg-gradient-to-b from-brand/20 via-brand/10 to-transparent" />
-                  <div className="relative">
-                    <div className="pl-6">
-                      <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">Stage {step}</p>
-                      <h3 className="mt-5 max-w-[15rem]">{title}</h3>
-                      <p className="mt-4 text-sm">{body}</p>
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div className="relative">
+              <div className="absolute bottom-8 left-[9px] top-8 w-px bg-gradient-to-b from-brand/25 via-teal/30 to-brand/10" />
+              <div className="divide-y divide-light-border border-y border-light-border">
+                {[
+                  ["Discover the drag", "We identify where repetitive work, delays, and manual decisions slow the business down."],
+                  ["Map the system", "We design around your real inputs, tools, approvals, exceptions, and edge cases."],
+                  ["Build with real data", "We test against the files, formats, constraints, and messy scenarios your team already handles."],
+                  ["Deploy into operations", "We launch the system inside your workflow, document it clearly, and train your team to use it confidently."],
+                ].map(([title, body]) => (
+                  <div key={title} className="relative grid gap-4 py-7 pl-10">
+                    <span className="absolute left-0 top-8 h-[19px] w-[19px] rounded-full border border-teal/35 bg-light shadow-[0_0_24px_rgba(32,214,199,0.22)]">
+                      <span className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand" />
+                    </span>
+                    <div className="grid gap-3 md:grid-cols-[0.58fr_1fr] md:gap-8">
+                      <h3 className="text-[22px] leading-tight">{title}</h3>
+                      <p className="text-sm leading-7 text-ink-secondary">{body}</p>
                     </div>
                   </div>
-                </Card>
-              ))}
+                ))}
+              </div>
+            </div>
+            <div className="max-w-2xl lg:justify-self-end">
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand">How We Work</p>
+              <h2 className="mt-5">We start with the workflow.</h2>
+              <p className="mt-6 text-[17px]">
+                Before we build, we understand how work actually moves — the tools, handoffs, exceptions, delays, and decisions that shape your operations.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="section-shell relative overflow-hidden bg-dark-base">
+      <section id="contact" className="section-shell relative overflow-hidden bg-[#171326]">
         <GradientOrb className="-right-32 -top-32" size={520} opacity={0.22} blur={160} />
         <GradientOrb color="teal" className="-left-24 bottom-0" size={360} opacity={0.18} blur={140} />
         <div className="absolute inset-0 dark-grid opacity-60" />
-        <div className="section-container relative grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="py-4 text-white">
-            <SectionLabel dark>{home.contact.label}</SectionLabel>
-            <h2 className="text-white">{home.contact.title}</h2>
-            <p className="mt-5 max-w-xl !text-white">{home.contact.description}</p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] !text-white">{home.contact.generalLabel}</p>
-                <a href={`mailto:${siteCopy.company.email}`} className="mt-3 block text-lg font-semibold !text-white">{siteCopy.company.email}</a>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] !text-white">{home.contact.locationLabel}</p>
-                <p className="mt-3 text-lg font-semibold !text-white">{siteCopy.company.location}</p>
-                <p className="mt-1 text-sm !text-white">{siteCopy.company.locationNote}</p>
-              </div>
-            </div>
+        <div className="section-container relative grid gap-12 lg:grid-cols-[0.9fr_0.82fr] lg:items-center">
+          <div className="max-w-2xl py-4 text-white">
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] !text-white/70">Contact</p>
+            <h2 className="mt-5 text-white">Ready to put AI to work?</h2>
+            <p className="mt-5 max-w-xl !text-white/72">
+              Tell us what is still manual in your business. We will help you identify where AI can reduce effort, speed up execution, and lower operational cost.
+            </p>
+            <p className="mt-8 text-sm !text-white/58">
+              <a href={`mailto:${siteCopy.company.email}`} className="font-medium !text-white transition-colors hover:!text-teal">{siteCopy.company.email}</a>
+              <span className="mx-2 text-white/25">·</span>
+              {siteCopy.company.location}
+              <span className="mx-2 text-white/25">·</span>
+              Working globally
+            </p>
           </div>
           <LeadCaptureForm
-            title={home.contact.formTitle}
-            description={home.contact.formDescription}
+            title="Book a discovery call"
+            description="Share the workflow you want to improve. We will get back with a clear next step."
             intent="discovery"
-            buttonLabel={home.contact.formButton}
+            buttonLabel="Book a discovery call"
+            detailsPlaceholder="What workflow do you want to improve?"
             dark
+            compact
           />
         </div>
       </section>

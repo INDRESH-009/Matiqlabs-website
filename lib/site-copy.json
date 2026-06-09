@@ -3,9 +3,9 @@
     "siteName": "Matiq Labs",
     "baseUrl": "https://matiqlabs.com",
     "description": "Matiq Labs builds AI systems that automate manual operational workflows for businesses.",
-    "tagline": "Intelligence for Autonomous Operations",
+    "tagline": "Intelligence for Business Operations",
     "keywords": ["Matiq Labs", "AI automation", "workflow automation", "CargoMatiq", "autonomous operations", "freight reconciliation"],
-    "homeTitle": "Matiq Labs — AI Systems for Modern Operations",
+    "homeTitle": "Matiq Labs — AI Systems for Business Operations",
     "homeDescription": "Matiq Labs builds AI systems that remove repetitive manual work from business operations. Start with a discovery session.",
     "cargoTitle": "CargoMatiq — Freight Reconciliation, Automated",
     "cargoDescription": "CargoMatiq automates freight invoice reconciliation from vendor statement intake to exception-ready reports."
@@ -50,18 +50,13 @@
   },
   "home": {
     "hero": {
-      "label": "AI automation for operations",
-      "title": "Turn manual workflows into systems that run.",
-      "description": "Matiq Labs builds AI systems that take over repetitive operational work across emails, spreadsheets, documents, approvals, and reports — so teams move faster without adding more manual effort.",
+      "label": "AI FOR BUSINESS OPERATIONS",
+      "title": "Do more with the team You already have.",
+      "description": "We help businesses automate work, cut costs, and move faster with AI.",
       "primaryCta": "Book a discovery call",
       "secondaryCta": "See CargoMatiq",
       "previewLabel": "System preview",
-      "pills": ["Built for real workflows", "Handles messy data", "Deployed into operations"],
-      "stats": [
-        ["5+", "Tools often touched in one workflow"],
-        ["300+", "Manual hours that can be removed monthly"],
-        ["1", "System to keep the workflow moving"]
-      ]
+      "pills": ["Reduce operational costs",   "Increase team productivity", "Scale without additional hires"]
     },
     "problem": {
       "label": "The reality",

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff7e8;
+  --background: #ffffff;
   --foreground: #221f2f;
 }
 
@@ -10,13 +10,13 @@
   --color-foreground: var(--foreground);
   --color-brand: #5b3df5;
   --color-brand-dark: #4127cc;
-  --color-brand-light: #e9dffb;
+  --color-brand-light: #eef0ff;
   --color-dark-base: #171326;
-  --color-dark-surface: #221b38;
-  --color-dark-elevated: #2d2448;
-  --color-light: #fff7e8;
-  --color-light-surface: #fff7e8;
-  --color-light-border: #e9dffb;
+  --color-dark-surface: #1f1933;
+  --color-dark-elevated: #2a2145;
+  --color-light: #ffffff;
+  --color-light-surface: #f7f9fc;
+  --color-light-border: #e7e9f5;
   --color-ink: #221f2f;
   --color-ink-secondary: #746f85;
   --color-ink-muted: #746f85;
@@ -122,7 +122,7 @@ p {
 .luxury-ring {
   border: 1px solid rgba(233, 223, 251, 0.9);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
     0 20px 40px rgba(34, 31, 47, 0.08);
 }
 
@@ -149,6 +149,23 @@ p {
 
 .hero-shell::after {
   content: none;
+}
+
+.hero-redesign {
+  isolation: isolate;
+}
+
+.hero-color-bends-contrast {
+  background:
+    radial-gradient(ellipse at center, rgba(23, 19, 38, 0.08), rgba(23, 19, 38, 0.58) 78%),
+    linear-gradient(180deg, rgba(23, 19, 38, 0.48) 0%, rgba(23, 19, 38, 0.1) 42%, rgba(23, 19, 38, 0.62) 100%);
+}
+
+.hero-title-accent {
+  color: #8dfff2;
+  text-shadow:
+    0 0 28px rgba(32, 214, 199, 0.22),
+    0 12px 40px rgba(0, 0, 0, 0.34);
 }
 
 .hero-visual {
@@ -183,6 +200,99 @@ p {
   background:
     radial-gradient(ellipse at center, rgba(32, 214, 199, 0.2) 0%, rgba(91, 61, 245, 0.24) 38%, rgba(255, 107, 90, 0.08) 60%, transparent 78%);
   filter: blur(54px);
+}
+
+.hero-motion-field {
+  pointer-events: none;
+  overflow: hidden;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.9), transparent 76%);
+}
+
+.hero-motion-line,
+.hero-motion-ring {
+  position: absolute;
+  display: block;
+}
+
+.hero-motion-line {
+  left: 50%;
+  height: 1px;
+  width: min(68vw, 760px);
+  transform-origin: center;
+  background: linear-gradient(90deg, transparent, rgba(32, 214, 199, 0.24), rgba(255, 255, 255, 0.28), rgba(91, 61, 245, 0.22), transparent);
+  filter: blur(0.2px);
+  opacity: 0.45;
+  animation: hero-line-drift 12s ease-in-out infinite;
+}
+
+.hero-motion-line-a {
+  top: 28%;
+  transform: translateX(-50%) rotate(-10deg);
+}
+
+.hero-motion-line-b {
+  top: 49%;
+  width: min(74vw, 860px);
+  transform: translateX(-50%) rotate(7deg);
+  animation-delay: -4s;
+}
+
+.hero-motion-line-c {
+  top: 68%;
+  width: min(54vw, 640px);
+  transform: translateX(-50%) rotate(-4deg);
+  animation-delay: -8s;
+}
+
+.hero-motion-ring {
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 0 48px rgba(32, 214, 199, 0.06),
+    0 0 70px rgba(91, 61, 245, 0.08);
+  opacity: 0.5;
+  animation: hero-ring-float 16s ease-in-out infinite;
+}
+
+.hero-motion-ring-a {
+  left: 12%;
+  top: 19%;
+  height: 180px;
+  width: 180px;
+}
+
+.hero-motion-ring-b {
+  bottom: 20%;
+  right: 10%;
+  height: 240px;
+  width: 240px;
+  animation-delay: -7s;
+}
+
+@keyframes hero-line-drift {
+  0%,
+  100% {
+    opacity: 0.28;
+    translate: -18px 0;
+  }
+
+  50% {
+    opacity: 0.58;
+    translate: 18px -10px;
+  }
+}
+
+@keyframes hero-ring-float {
+  0%,
+  100% {
+    scale: 0.96;
+    translate: 0 0;
+  }
+
+  50% {
+    scale: 1.04;
+    translate: 16px -18px;
+  }
 }
 
 .hero-stage {
@@ -220,7 +330,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(32, 214, 199, 0.2) 22%, rgba(255, 247, 232, 0.24) 50%, rgba(91, 61, 245, 0.2) 78%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(32, 214, 199, 0.2) 22%, rgba(255, 255, 255, 0.24) 50%, rgba(91, 61, 245, 0.2) 78%, transparent 100%);
   filter: blur(18px);
   opacity: 0.7;
 }
@@ -275,4 +385,12 @@ p {
   .hero-visual {
     max-width: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-motion-line,
+  .hero-motion-ring {
+    animation: none;
+  }
+
 }

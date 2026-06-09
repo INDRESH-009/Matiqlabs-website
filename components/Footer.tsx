@@ -10,11 +10,11 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative bg-dark-base text-white">
+    <footer className="relative bg-[#171326] text-white">
       <div className="h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
-      <div className="section-container grid gap-10 px-0 py-16 md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
-        <div>
-          <Image src="/dark-mode-logo.png" alt={siteCopy.meta.siteName} width={120} height={33} />
+      <div className="section-container grid gap-10 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr] xl:px-0">
+        <div className="max-w-sm">
+          <Image src="/dark-mode-logo.png" alt={siteCopy.meta.siteName} width={120} height={33} style={{ width: 120, height: "auto" }} />
           <p className="mt-5 max-w-xs text-sm text-white/50">{siteCopy.meta.tagline}</p>
           <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/35">{siteCopy.footer.companyStamp}</p>
           <div className="mt-6 flex gap-3">
@@ -44,7 +44,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="section-container flex flex-col justify-between gap-3 border-t border-white/10 px-0 py-6 font-mono text-[12px] text-white/25 sm:flex-row">
+      <div className="section-container flex flex-col justify-between gap-3 border-t border-white/10 px-5 py-6 font-mono text-[12px] text-white/35 sm:flex-row sm:px-8 xl:px-0">
         <span>{siteCopy.company.copyright}</span>
         <span>{siteCopy.footer.bottomNote}</span>
       </div>

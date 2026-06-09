@@ -8,7 +8,7 @@ const { cargo } = siteCopy;
 export function CargoMatiqPage() {
   return (
     <main className="bg-light">
-      <section data-hero className="relative overflow-hidden bg-dark-base px-5 pb-24 pt-32 text-white sm:px-8">
+      <section data-hero className="relative -mt-[86px] overflow-hidden bg-dark-base px-5 pb-24 pt-[154px] text-white sm:px-8">
         <GradientOrb className="-right-56 top-0" size={620} opacity={0.18} blur={170} />
         <GradientOrb color="teal" className="-left-24 bottom-0" size={420} opacity={0.18} blur={150} />
         <div className="absolute inset-0 dark-grid opacity-35" />
@@ -18,7 +18,7 @@ export function CargoMatiqPage() {
             <SectionLabel dark>{cargo.hero.label}</SectionLabel>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               <Chip variant="dark" dot>{cargo.hero.liveLabel}</Chip>
-              <div className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/56">
+              <div className="rounded-full border border-white/15 bg-white/[0.07] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/78">
                 Freight invoice reconciliation
               </div>
             </div>
@@ -44,7 +44,7 @@ export function CargoMatiqPage() {
                     <span className="h-3 w-3 rounded-full bg-amber" />
                     <span className="h-3 w-3 rounded-full bg-green" />
                   </div>
-                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/55">{cargo.hero.consoleLabel}</span>
+                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/76">{cargo.hero.consoleLabel}</span>
                 </div>
                 <Chip variant="dark">{cargo.hero.consoleStatus}</Chip>
               </div>
@@ -56,7 +56,7 @@ export function CargoMatiqPage() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">{cargo.hero.name}</p>
-                      <p className="mt-1 text-xs text-white/52">{cargo.hero.subtitle}</p>
+                      <p className="mt-1 text-xs text-white/72">{cargo.hero.subtitle}</p>
                     </div>
                   </div>
                   <span className="rounded-full border border-white/12 bg-white/[0.08] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-white/72">
@@ -73,7 +73,7 @@ export function CargoMatiqPage() {
                 ))}
               </div>
               <div className="mt-6 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/55">{cargo.hero.batchLabel}</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/76">{cargo.hero.batchLabel}</p>
                 <div className="mt-4 space-y-3">
                   {cargo.hero.batchRows.map(([vendor, detail, status], index) => (
                     <div key={vendor} className="flex items-center justify-between rounded-2xl border border-white/10 bg-dark-surface px-4 py-3">
@@ -83,10 +83,10 @@ export function CargoMatiqPage() {
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-white">{vendor}</p>
-                          <p className="mt-1 text-xs text-white/55">{detail}</p>
+                          <p className="mt-1 text-xs text-white/72">{detail}</p>
                         </div>
                       </div>
-                      <span className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] ${status === "Matched" ? "bg-teal/15 text-teal" : status === "Ready" ? "bg-green/15 text-green" : "bg-amber/15 text-amber"}`}>
+                      <span className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] ${status === "Matched" ? "bg-teal/15 text-teal" : status === "Ready" ? "bg-green/15 text-white" : "bg-amber/15 text-amber"}`}>
                         {status}
                       </span>
                     </div>

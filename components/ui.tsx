@@ -93,8 +93,8 @@ export function Card({
   const variants = {
     default: "ambient-panel luxury-ring border border-light-border bg-light p-6 shadow-card sm:p-8",
     dark: "border border-white/10 bg-dark-elevated p-6 shadow-dark-card sm:p-8",
-    feature: "ambient-panel luxury-ring border border-light-border bg-[linear-gradient(180deg,#FFF7E8_0%,#F8F0FF_100%)] p-6 shadow-card sm:p-8",
-    highlight: "ambient-panel border border-brand/15 bg-[linear-gradient(180deg,rgba(233,223,251,0.92),rgba(255,247,232,0.74))] p-6 shadow-card sm:p-8",
+    feature: "ambient-panel luxury-ring border border-light-border bg-[linear-gradient(180deg,#FFFFFF_0%,#F7F3FF_100%)] p-6 shadow-card sm:p-8",
+    highlight: "ambient-panel border border-brand/15 bg-[linear-gradient(180deg,rgba(233,223,251,0.92),rgba(255,255,255,0.82))] p-6 shadow-card sm:p-8",
   };
 
   return <div className={`rounded-[30px] ${variants[variant]} ${className}`} {...props}>{children}</div>;

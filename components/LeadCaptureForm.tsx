@@ -10,6 +10,8 @@ type LeadCaptureFormProps = {
   intent: "discovery" | "access";
   buttonLabel: string;
   dark?: boolean;
+  compact?: boolean;
+  detailsPlaceholder?: string;
 };
 
 const baseInput = "w-full rounded-[22px] border px-4 py-3.5 text-sm outline-none transition-all";
@@ -21,6 +23,8 @@ export function LeadCaptureForm({
   intent,
   buttonLabel,
   dark = false,
+  compact = false,
+  detailsPlaceholder,
 }: LeadCaptureFormProps) {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -49,6 +53,63 @@ export function LeadCaptureForm({
       event.currentTarget.reset();
       setSent(true);
     }
+  }
+
+  if (compact) {
+    return (
+      <div
+        id={id}
+        className={`relative overflow-hidden rounded-[28px] border p-6 shadow-dark-card backdrop-blur-md sm:p-7 ${dark ? "border-white/10 bg-white/[0.045] text-white" : "border-light-border bg-light text-ink"}`}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(32,214,199,0.12),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(91,61,245,0.12),transparent_42%)]" />
+        <div className="relative">
+          <p className={`font-mono text-[11px] uppercase tracking-[0.14em] ${dark ? "!text-white/70" : "text-brand"}`}>
+            {title}
+          </p>
+          <p className={`mt-3 max-w-lg text-sm ${dark ? "!text-white/68" : "text-ink-secondary"}`}>{description}</p>
+        </div>
+        <form onSubmit={submit} className="relative mt-6 space-y-3">
+          <input
+            required
+            name="name"
+            placeholder={siteCopy.forms.namePlaceholder}
+            className={`${baseInput} rounded-[18px] py-3 ${dark ? "border-white/10 bg-white/[0.045] !text-white placeholder:!text-white/45 focus:border-teal/40 focus:bg-white/[0.07]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-light"}`}
+          />
+          <input
+            required
+            type="email"
+            name="email"
+            placeholder={siteCopy.forms.emailPlaceholder}
+            className={`${baseInput} rounded-[18px] py-3 ${dark ? "border-white/10 bg-white/[0.045] !text-white placeholder:!text-white/45 focus:border-teal/40 focus:bg-white/[0.07]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-light"}`}
+          />
+          <input
+            required
+            name="company"
+            placeholder={siteCopy.forms.companyPlaceholder}
+            className={`${baseInput} rounded-[18px] py-3 ${dark ? "border-white/10 bg-white/[0.045] !text-white placeholder:!text-white/45 focus:border-teal/40 focus:bg-white/[0.07]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-light"}`}
+          />
+          <textarea
+            required
+            name="details"
+            rows={4}
+            placeholder={detailsPlaceholder ?? (intent === "access" ? siteCopy.forms.accessDetailsPlaceholder : siteCopy.forms.discoveryDetailsPlaceholder)}
+            className={`${baseInput} resize-none rounded-[18px] py-3 ${dark ? "border-white/10 bg-white/[0.045] !text-white placeholder:!text-white/45 focus:border-teal/40 focus:bg-white/[0.07]" : "border-light-border bg-light-surface text-ink placeholder:text-ink-muted focus:border-brand focus:bg-light"}`}
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className={`inline-flex rounded-full px-5 py-3 text-sm font-semibold transition-all ${dark ? "bg-white text-ink hover:bg-brand-light" : "bg-[#3657F6] text-white shadow-[0_18px_44px_rgba(54,87,246,0.22)] hover:bg-[#2544D8]"} disabled:cursor-not-allowed disabled:opacity-70`}
+          >
+            {loading ? siteCopy.forms.sending : buttonLabel}
+          </button>
+        </form>
+        {sent ? (
+          <p className={`relative mt-4 inline-flex rounded-full border px-3 py-2 font-mono text-[11px] uppercase tracking-[0.12em] ${dark ? "border-green/25 bg-green/10 !text-green" : "border-green bg-green text-ink"}`}>
+            {siteCopy.forms.success}
+          </p>
+        ) : null}
+      </div>
+    );
   }
 
   return (
