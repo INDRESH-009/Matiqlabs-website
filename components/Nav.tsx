@@ -33,14 +33,17 @@ export function Nav() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  const darkHeroRoute = pathname === "/" || pathname === "/cargomatiq";
+  const darkHeroRoute = pathname === "/" || pathname === "/cargomatiq" || pathname === "/blog";
   const useDarkLogo = darkHeroRoute && heroVisible;
   const headerClass = scrolled ? "border-transparent bg-transparent" : "border-transparent bg-transparent";
   const linkClass = useDarkLogo ? "text-white/66 hover:text-white" : "text-ink-secondary hover:text-ink";
   const pillClass = useDarkLogo
     ? "border-white/10 bg-[#1f1933]/45"
     : "border-brand/10 bg-white/80 shadow-[0_16px_44px_rgba(34,31,47,0.08)]";
-  const primaryLinks = siteCopy.nav.links.filter(([label]) => label !== "Services");
+  const primaryLinks = [
+    ["About", "/#about"],
+    ["Contact", "/#contact"],
+  ];
 
   return (
     <>
@@ -74,7 +77,7 @@ export function Nav() {
               >
                 {siteCopy.nav.productsLabel}
               </button>
-              {productsOpen ? (
+            {productsOpen ? (
                 <div className="absolute right-0 top-[calc(100%+12px)] min-w-[150px] rounded-[22px] border border-white/10 bg-[#1f1933]/90 p-1.5 shadow-dark-card backdrop-blur-xl">
                   <Link
                     href="/cargomatiq"
@@ -86,6 +89,10 @@ export function Nav() {
                 </div>
               ) : null}
             </div>
+            <span className={`h-4 w-px ${useDarkLogo ? "bg-white/10" : "bg-brand/10"}`} />
+            <Link href="/blog" className={`px-4 py-1.5 text-xs font-medium transition-colors ${linkClass}`}>
+              Blog
+            </Link>
           </nav>
           <div className="mt-1 hidden items-center gap-2 justify-self-end md:flex">
             <Link
@@ -117,6 +124,9 @@ export function Nav() {
             ))}
             <Link href="/cargomatiq" onClick={() => setOpen(false)} className="text-4xl font-bold text-white">
               {siteCopy.nav.productName}
+            </Link>
+            <Link href="/blog" onClick={() => setOpen(false)} className="text-4xl font-bold text-white">
+              Blog
             </Link>
             <div className="pt-4">
               <Button href="/#contact" size="sm">{siteCopy.nav.cta}</Button>

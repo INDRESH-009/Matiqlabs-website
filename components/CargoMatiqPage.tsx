@@ -1,187 +1,320 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+import { FileCheck, FileUp, GitCompareArrows, TriangleAlert } from "lucide-react";
 import Image from "next/image";
-import siteCopy from "@/lib/site-copy.json";
-import { Arrow, Button, Card, Chip, GradientOrb, SectionLabel, StatCounter } from "@/components/ui";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { CalendlyCtaCard } from "@/components/CalendlyCtaCard";
+import { Arrow, Button, GradientOrb, SectionLabel } from "@/components/ui";
+import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
-const { cargo } = siteCopy;
+const screenshotRoot = "/cargomatiq";
+
+const productViews = [
+  {
+    title: "Reconciliation dashboard",
+    text: "Track processed statements, matched invoices, tolerance matches, and flagged exceptions.",
+    src: `${screenshotRoot}/cm-recon.jpeg`,
+    imageWidth: 1600,
+    imageHeight: 803,
+  },
+  {
+    title: "Exception review",
+    text: "See mismatches, missing references, duplicate charges, and records that need human review.",
+    src: `${screenshotRoot}/cm-reconrun.jpeg`,
+    imageWidth: 1600,
+    imageHeight: 791,
+  },
+];
+
+const workflowSteps = [
+  {
+    title: "Upload vendor statement",
+    text: "CargoMatiq accepts vendor files and extracts the relevant invoice and shipment details.",
+    label: "Intake",
+    Icon: FileUp,
+  },
+  {
+    title: "Match against internal records",
+    text: "The system compares vendor data with your operational or finance records.",
+    label: "Match",
+    Icon: GitCompareArrows,
+  },
+  {
+    title: "Flag what needs review",
+    text: "Clean matches pass through. Mismatches, missing data, and tolerance issues are routed for review.",
+    label: "Review",
+    Icon: TriangleAlert,
+  },
+  {
+    title: "Export the result",
+    text: "Teams get a structured reconciliation output they can act on.",
+    label: "Report",
+    Icon: FileCheck,
+  },
+];
+
+const capabilities = [
+  {
+    title: "Vendor statement intake",
+    text: "Accept vendor emails, spreadsheet attachments, PDF statements, HTML tables, and reply chains without asking teams to reshape files first.",
+    details: ["Email bodies", "Excel and PDF files", "Reply chains"],
+  },
+  {
+    title: "Invoice data extraction",
+    text: "Read the operational fields that matter for freight reconciliation, including invoice IDs, shipment references, dates, vendors, charges, and totals.",
+    details: ["Invoice IDs", "Shipment references", "Charge totals"],
+  },
+  {
+    title: "Internal record matching",
+    text: "Compare vendor statement rows against operational or finance records so operators can see what lines up and what needs review.",
+    details: ["Books records", "Vendor rows", "Match status"],
+  },
+  {
+    title: "Tolerance-based matching",
+    text: "Handle real-world variance by separating exact matches from acceptable tolerance matches and true exceptions.",
+    details: ["Exact matches", "Allowed variance", "Residual gaps"],
+  },
+  {
+    title: "Duplicate and missing reference checks",
+    text: "Surface repeated charges, missing references, unmatched invoices, and records that are likely to slow down month-end review.",
+    details: ["Duplicate charges", "Missing refs", "Unmatched rows"],
+  },
+  {
+    title: "Exception-ready reporting",
+    text: "Turn the messy reconciliation run into a structured output your AP or operations team can review, export, and act on.",
+    details: ["Review queue", "Exportable report", "AP handoff"],
+  },
+];
+
+function publicImageExists(src: string) {
+  return existsSync(join(process.cwd(), "public", src.replace(/^\//, "")));
+}
+
+function ScreenshotFrame({
+  title,
+  description,
+  src,
+  hero = false,
+  imageWidth = 1200,
+  imageHeight = 760,
+}: {
+  title: string;
+  description: string;
+  src: string;
+  hero?: boolean;
+  imageWidth?: number;
+  imageHeight?: number;
+}) {
+  const hasImage = publicImageExists(src);
+
+  return (
+    <div className={`cargo-shot-frame ${hero ? "cargo-shot-frame-hero" : ""}`}>
+      <div className="cargo-shot-topbar">
+        <div className="flex gap-2">
+          <span />
+          <span />
+          <span />
+        </div>
+        <Image src="/cargpomatiq-dark.png" alt="CargoMatiq" width={116} height={29} className="h-auto w-[96px] opacity-90" />
+      </div>
+      <div
+        className={`relative grid place-items-center overflow-hidden rounded-b-[26px] bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] ${hero ? "min-h-[260px]" : hasImage ? "" : "aspect-[16/10]"}`}
+        style={hasImage ? { aspectRatio: `${imageWidth} / ${imageHeight}` } : undefined}
+      >
+        {/* Replace with actual CargoMatiq screenshot */}
+        {hasImage ? (
+          <Image
+            src={src}
+            alt={title}
+            width={imageWidth}
+            height={imageHeight}
+            className="h-full w-full object-contain"
+          />
+        ) : (
+          <div className="relative z-10 px-6 py-12 text-center">
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] !text-white/52">
+              Product screenshot placeholder
+            </p>
+            <h3 className="mt-4 text-[clamp(24px,3vw,40px)] leading-tight !text-white">
+              {title}
+            </h3>
+            <p className="mx-auto mt-4 max-w-md text-sm leading-7 !text-white/60">
+              {description}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export function CargoMatiqPage() {
   return (
     <main className="bg-light">
-      <section data-hero className="relative -mt-[86px] overflow-hidden bg-dark-base px-5 pb-24 pt-[154px] text-white sm:px-8">
-        <GradientOrb className="-right-56 top-0" size={620} opacity={0.18} blur={170} />
-        <GradientOrb color="teal" className="-left-24 bottom-0" size={420} opacity={0.18} blur={150} />
-        <div className="absolute inset-0 dark-grid opacity-35" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(91,61,245,0.28),transparent_30%),radial-gradient(circle_at_86%_18%,rgba(32,214,199,0.2),transparent_28%),radial-gradient(circle_at_74%_76%,rgba(255,107,90,0.08),transparent_24%),linear-gradient(180deg,#171326_0%,#221B38_58%,#171326_100%)]" />
-        <div className="section-container relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="max-w-3xl">
-            <SectionLabel dark>{cargo.hero.label}</SectionLabel>
-            <div className="mt-4 flex flex-wrap items-center gap-3">
-              <Chip variant="dark" dot>{cargo.hero.liveLabel}</Chip>
-              <div className="rounded-full border border-white/15 bg-white/[0.07] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/78">
-                Freight invoice reconciliation
-              </div>
-            </div>
-            <div className="mt-7">
-              <div className="inline-block rounded-[22px] border border-white/10 bg-white/[0.04] px-5 py-4">
-                <Image src="/cargpomatiq-dark.png" alt={cargo.hero.name} width={240} height={57} className="h-auto w-[190px] sm:w-[220px]" />
-              </div>
-            </div>
-            <h1 className="mt-8 max-w-4xl text-white">{cargo.hero.title}</h1>
-            <p className="mt-6 max-w-2xl text-[18px] text-white/70">{cargo.hero.description}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="#request-access" variant="white">{cargo.hero.primaryCta}</Button>
-              <Button href="#how-it-works" variant="ghostDark">{cargo.hero.secondaryCta} <Arrow /></Button>
+      <section data-hero className="cargo-product-hero relative -mt-[86px] overflow-hidden bg-dark-base px-5 pb-20 pt-[152px] text-white sm:px-8 lg:pb-28">
+        <GradientOrb className="-right-44 top-4" size={540} opacity={0.14} blur={180} />
+        <GradientOrb color="teal" className="-left-32 bottom-8" size={380} opacity={0.12} blur={160} />
+        <div className="absolute inset-0 dark-grid opacity-20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(91,61,245,0.2),transparent_30%),radial-gradient(circle_at_86%_24%,rgba(32,214,199,0.14),transparent_30%),linear-gradient(180deg,rgba(23,19,38,0.88)_0%,rgba(23,19,38,0.97)_78%,#171326_100%)]" />
+
+        <div className="section-container relative z-10 grid gap-16 lg:grid-cols-[0.95fr_0.82fr] lg:items-center xl:gap-24">
+          <div className="max-w-2xl">
+            <SectionLabel dark>Product · Freight Operations</SectionLabel>
+            <h1 className="mt-7 max-w-3xl text-white">
+              Freight reconciliation, without spreadsheet work.
+            </h1>
+            <p className="mt-6 max-w-xl text-[18px] leading-8 !text-white/70">
+              CargoMatiq extracts invoice data, matches it against internal records, and flags only the exceptions your team needs to review.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-5">
+              <Button href="#request-access" variant="white">Request access</Button>
+              <a
+                href="#how-it-works"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white/76 transition hover:text-white"
+              >
+                See how it works <Arrow />
+              </a>
             </div>
           </div>
-          <Card variant="dark" className="relative overflow-hidden border-white/10 bg-[linear-gradient(180deg,rgba(45,36,72,0.98),rgba(23,19,38,0.98))]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(32,214,199,0.18),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(91,61,245,0.18),transparent_38%)]" />
-            <div className="relative">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-2">
-                    <span className="h-3 w-3 rounded-full bg-red" />
-                    <span className="h-3 w-3 rounded-full bg-amber" />
-                    <span className="h-3 w-3 rounded-full bg-green" />
-                  </div>
-                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/76">{cargo.hero.consoleLabel}</span>
-                </div>
-                <Chip variant="dark">{cargo.hero.consoleStatus}</Chip>
-              </div>
-              <div className="mt-6 rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="grid h-10 w-10 place-items-center rounded-2xl bg-white/[0.08]">
-                      <Image src="/cargomatic-icon.png" alt="CargoMatiq icon" width={20} height={20} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-white">{cargo.hero.name}</p>
-                      <p className="mt-1 text-xs text-white/72">{cargo.hero.subtitle}</p>
-                    </div>
-                  </div>
-                  <span className="rounded-full border border-white/12 bg-white/[0.08] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-white/72">
-                    Live
-                  </span>
-                </div>
-              </div>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {cargo.hero.proofStats.map(([value, suffix, label]) => (
-                  <div key={label} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                    <StatCounter target={Number(value)} suffix={suffix} size="text-4xl" />
-                    <p className="mt-3 text-sm text-white/68">{label}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/76">{cargo.hero.batchLabel}</p>
-                <div className="mt-4 space-y-3">
-                  {cargo.hero.batchRows.map(([vendor, detail, status], index) => (
-                    <div key={vendor} className="flex items-center justify-between rounded-2xl border border-white/10 bg-dark-surface px-4 py-3">
-                      <div className="flex items-center gap-4">
-                        <div className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.05] font-mono text-[10px] uppercase tracking-[0.14em] text-white/60">
-                          {index + 1}
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-white">{vendor}</p>
-                          <p className="mt-1 text-xs text-white/72">{detail}</p>
-                        </div>
-                      </div>
-                      <span className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] ${status === "Matched" ? "bg-teal/15 text-teal" : status === "Ready" ? "bg-green/15 text-white" : "bg-amber/15 text-amber"}`}>
-                        {status}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Card>
+
+          <div className="cargo-hero-visual relative">
+            <div className="absolute -inset-6 rounded-full bg-teal/10 opacity-70 blur-3xl" />
+            {/* Replace with actual CargoMatiq dashboard screenshot */}
+            <ScreenshotFrame
+              hero
+              src={`${screenshotRoot}/cm-dashboard.jpeg`}
+              title="CargoMatiq reconciliation dashboard"
+              description="Product screenshot placeholder"
+              imageWidth={1600}
+              imageHeight={886}
+            />
+          </div>
         </div>
       </section>
 
-      <section className="section-shell bg-light">
-        <div className="section-container grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <Card variant="feature" className="relative overflow-hidden">
-            <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-brand/10 blur-3xl" />
-            <div className="relative">
-              <SectionLabel>{cargo.why.label}</SectionLabel>
-              <h2>{cargo.why.title}</h2>
-              <p className="mt-5 max-w-3xl">{cargo.why.description}</p>
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
-                {cargo.why.capabilities.map((item, index) => (
-                  <div key={item} className="rounded-3xl border border-brand/10 bg-light px-5 py-5">
-                    <div className="flex items-start gap-4">
-                      <div className="grid h-10 w-10 place-items-center rounded-2xl bg-teal/10 text-sm font-semibold text-brand">
-                        {index + 1}
-                      </div>
-                      <p className="text-base font-semibold text-ink">{item}</p>
-                    </div>
-                  </div>
-                ))}
+      <section className="section-shell cargo-stack-section light-ambient-section light-ambient-section-a bg-light-surface">
+        <div className="section-container relative z-10">
+          <ScrollStack
+            className="cargo-capability-stack"
+            itemDistance={112}
+            itemScale={0.018}
+            itemStackDistance={0}
+            stackPosition="18%"
+            scaleEndPosition="10%"
+            baseScale={0.9}
+            blurAmount={0}
+            useWindowScroll
+            header={
+              <div className="cargo-stack-intro mx-auto text-center">
+                <SectionLabel>WHAT IT HANDLES</SectionLabel>
+                <h2>Built for the work freight teams repeat every week.</h2>
+                <p className="mx-auto mt-5 max-w-2xl text-[17px]">
+                  CargoMatiq covers the intake, extraction, matching, exception review, and reporting steps that turn freight reconciliation into repeatable operations.
+                </p>
               </div>
-            </div>
-          </Card>
-          <Card className="bg-dark-base text-white">
-            <SectionLabel dark>{cargo.fit.label}</SectionLabel>
-            <h3 className="text-white">{cargo.fit.title}</h3>
-            <div className="mt-6 space-y-4 text-sm text-white/70">
-              {cargo.fit.items.map((item) => (
-                <p key={item}>{item}</p>
+            }
+          >
+            {capabilities.map((item, index) => (
+              <ScrollStackItem key={item.title} itemClassName="cargo-capability-card">
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <p className="cargo-card-index font-mono text-[11px] uppercase tracking-[0.16em]">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="mt-3 text-[clamp(26px,2.8vw,38px)] leading-tight">{item.title}</h3>
+                  </div>
+                  <div className="cargo-card-orbit" />
+                </div>
+                <div className="cargo-card-body grid gap-5 md:grid-cols-[1fr_0.72fr] md:items-start">
+                  <p className="max-w-2xl text-[16px] leading-7">{item.text}</p>
+                  <div className="cargo-card-detail-panel">
+                    {item.details.map((detail) => (
+                      <div key={detail} className="cargo-card-detail-row">
+                        <span />
+                        <p>{detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        </div>
+      </section>
+
+      <section id="how-it-works" className="section-shell light-ambient-section light-ambient-section-a bg-light-surface">
+        <div className="section-container relative z-10">
+          <div className="max-w-3xl">
+            <SectionLabel>HOW IT WORKS</SectionLabel>
+            <h2>From vendor statement to exception-ready report.</h2>
+          </div>
+          <div className="cargo-process-panel mt-12">
+            <div className="cargo-process-grid">
+              {workflowSteps.map(({ title, text, label, Icon }, index) => (
+                <div key={title} className="cargo-process-card">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="cargo-process-icon">
+                      <Icon aria-hidden="true" />
+                    </div>
+                    <span className="cargo-process-badge">{label}</span>
+                  </div>
+                  <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-brand/70">
+                    Step {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-2 text-[22px] leading-tight">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-ink-secondary">{text}</p>
+                </div>
               ))}
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
-      <section id="how-it-works" className="section-shell bg-light-surface">
-        <div className="section-container">
-          <div className="max-w-3xl">
-            <SectionLabel>{cargo.steps.label}</SectionLabel>
-            <h2>{cargo.steps.title}</h2>
+      <section className="section-shell light-ambient-section light-ambient-section-b bg-light-surface">
+        <div className="section-container relative z-10">
+          <div className="grid gap-8 lg:grid-cols-[0.75fr_1fr] lg:items-end">
+            <div>
+              <SectionLabel>SNEAK PEEK</SectionLabel>
+              <h2>A quick look at CargoMatiq.</h2>
+            </div>
+            <p className="max-w-2xl text-[17px] lg:justify-self-end">
+              A few product screens from the reconciliation workflow.
+            </p>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {cargo.steps.items.map(([label, title, body], index) => (
-              <Card key={label} variant="feature" className="relative min-h-[240px] overflow-hidden">
-                <div className="absolute left-8 top-0 h-full w-px bg-gradient-to-b from-brand/20 via-brand/10 to-transparent" />
-                <div className="relative pl-6">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand">{label}</p>
-                  <h3 className="mt-5">{title}</h3>
-                  <p className="mt-4 text-sm">{body}</p>
-                  <div className="mt-6 inline-flex rounded-full border border-teal/25 bg-teal/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-brand">
-                    {`Sequence ${index + 1}`}
-                  </div>
-                </div>
-              </Card>
+            {productViews.map((view) => (
+              <div key={view.title} className="relative">
+                <div className="absolute inset-x-8 top-10 h-32 rounded-full bg-brand/10 blur-3xl" />
+                {/* Replace with actual CargoMatiq screenshot */}
+                <ScreenshotFrame
+                  title={view.title}
+                  description={view.text}
+                  src={view.src}
+                  imageWidth={view.imageWidth}
+                  imageHeight={view.imageHeight}
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-shell bg-light">
-        <div className="section-container grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <Card className="overflow-hidden">
-            <SectionLabel>{cargo.proof.label}</SectionLabel>
-            <h3>{cargo.proof.title}</h3>
-            <div className="mt-7 rounded-[28px] border border-light-border bg-light-surface p-5">
-              <div className="flex items-center justify-between">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">{cargo.proof.sampleLabel}</p>
-                <Image src="/cargomatiq-light.png" alt={cargo.hero.name} width={112} height={28} className="h-auto w-[96px]" />
-              </div>
-              <div className="mt-5 space-y-3">
-                {cargo.proof.sampleRows.map(([label, value]) => (
-                  <div key={label} className="flex items-center justify-between rounded-2xl bg-light px-4 py-3">
-                    <span className="text-sm text-ink-secondary">{label}</span>
-                    <span className="font-mono text-sm text-ink">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Card>
-          <LeadCaptureForm
-            id="request-access"
-            title={cargo.form.title}
-            description={cargo.form.description}
-            intent="access"
-            buttonLabel={cargo.form.button}
+      <section id="request-access" className="section-shell relative overflow-hidden bg-[#171326]">
+        <GradientOrb className="-right-32 -top-32" size={520} opacity={0.22} blur={160} />
+        <GradientOrb color="teal" className="-left-24 bottom-0" size={360} opacity={0.18} blur={140} />
+        <div className="absolute inset-0 dark-grid opacity-60" />
+        <div className="section-container relative grid gap-12 lg:grid-cols-[0.9fr_0.82fr] lg:items-center">
+          <div className="max-w-2xl py-4 text-white">
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] !text-white/70">REQUEST ACCESS</p>
+            <h2 className="mt-5 text-white">Want to see CargoMatiq on your workflow?</h2>
+            <p className="mt-5 max-w-xl !text-white/72">
+              Share how reconciliation works today — vendor volume, file formats, systems used, and where the process slows down.
+            </p>
+          </div>
+          <CalendlyCtaCard
+            title="Book a CargoMatiq walkthrough"
+            description="We will review your reconciliation process and show where CargoMatiq can reduce manual checking, matching, and exception handling."
+            points={["Vendor statement review", "Reconciliation fit check", "Automation next step"]}
+            buttonLabel="Request access"
           />
         </div>
       </section>

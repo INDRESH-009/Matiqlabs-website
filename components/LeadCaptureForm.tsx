@@ -123,7 +123,7 @@ export function LeadCaptureForm({
             <p className={`font-mono text-[11px] uppercase tracking-[0.14em] ${dark ? "!text-white" : "text-brand"}`}>
               {intent === "access" ? siteCopy.forms.accessLabel : siteCopy.forms.discoveryLabel}
             </p>
-            <h3 className={`mt-4 text-[30px] ${dark ? "!text-white" : "text-ink"}`}>{title}</h3>
+            <h3 className={`title-font mt-4 text-[30px] ${dark ? "!text-white" : "text-ink"}`}>{title}</h3>
             <p className={`mt-3 max-w-xl text-sm ${dark ? "!text-white" : "text-ink-secondary"}`}>{description}</p>
           </div>
           <div className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] ${dark ? "border-teal/30 bg-teal/10 !text-white" : "border-teal/25 bg-teal/10 text-brand"}`}>

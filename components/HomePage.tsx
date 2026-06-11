@@ -1,10 +1,50 @@
 import Image from "next/image";
+import { BrainCircuit, Clock3, Network, Rocket, SearchCheck, TrendingUp } from "lucide-react";
 import siteCopy from "@/lib/site-copy.json";
+import { CalendlyCtaCard } from "@/components/CalendlyCtaCard";
 import ColorBends from "@/components/ColorBends";
 import { GradientOrb, SectionLabel } from "@/components/ui";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 
 const { home } = siteCopy;
+
+const realityPainPoints = [
+  {
+    Icon: Network,
+    title: "Work is scattered",
+    body: "Critical information lives across tools, files, inboxes, and people.",
+  },
+  {
+    Icon: Clock3,
+    title: "Teams move slower",
+    body: "Time gets lost in checking, copying, cleaning, and chasing.",
+  },
+  {
+    Icon: TrendingUp,
+    title: "Growth gets expensive",
+    body: "More volume means more coordination, more people, and more overhead.",
+  },
+];
+
+const serviceCards = [
+  {
+    Icon: SearchCheck,
+    title: "Workflow Discovery",
+    body: "We map where time, cost, and manual decisions slow your business down.",
+    label: "Map the work",
+  },
+  {
+    Icon: BrainCircuit,
+    title: "AI Automation Systems",
+    body: "We build agents and workflows that process inputs, make decisions, route exceptions, and move work forward.",
+    label: "Build the system",
+  },
+  {
+    Icon: Rocket,
+    title: "Deployment & Handover",
+    body: "We deploy into your existing workflow, train your team, and leave you with a system your team can actually use.",
+    label: "Launch with clarity",
+  },
+];
 
 export function HomePage() {
   return (
@@ -27,122 +67,82 @@ export function HomePage() {
           transparent
         />
         <div className="hero-color-bends-contrast absolute inset-0 z-[1]" />
+        <div className="hero-copy-veil absolute inset-0 z-[2]" />
         <div className="section-container relative z-10">
           <div className="mx-auto flex min-h-[calc(100vh-86px)] max-w-6xl flex-col items-center justify-center py-8 text-center">
-            <SectionLabel dark center>{home.hero.label}</SectionLabel>
-            <h1 className="max-w-6xl text-[clamp(58px,8.8vw,122px)] leading-[0.9] text-white drop-shadow-[0_14px_40px_rgba(0,0,0,0.42)]">
+            <SectionLabel dark center className="hero-eyebrow">{home.hero.label}</SectionLabel>
+            <h1 className="max-w-[92rem] text-[clamp(78px,10.8vw,158px)] leading-[0.86] text-white drop-shadow-[0_14px_40px_rgba(0,0,0,0.42)]">
               <span className="block">Do more with the team</span>
-              <span className="hero-title-accent mt-5 block sm:mt-7">You already have.</span>
+              <span className="hero-title-accent title-font mt-5 block sm:mt-7">You already have.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-[18px] leading-8 !text-white/82">{home.hero.description}</p>
+            <p className="hero-subheadline mt-7 max-w-[820px] text-[clamp(23px,2.55vw,32px)] leading-[1.42] !text-white/88">{home.hero.description}</p>
           </div>
         </div>
       </section>
 
-      <section className="section-shell bg-light-surface">
-        <div className="section-container">
-          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <section className="section-shell light-ambient-section light-ambient-section-a bg-light-surface">
+        <div className="section-container relative z-10">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand">The Reality</p>
               <h2 className="mt-5 max-w-3xl">Most businesses are still powered by manual work.</h2>
               <p className="mt-6 max-w-2xl text-[17px]">
                 Emails, spreadsheets, documents, approvals, and follow-ups quietly slow down how work moves. AI can change that — when it is built into the workflow, not added on top of it.
               </p>
-              <div className="mt-10 max-w-2xl divide-y divide-light-border border-y border-light-border">
-                {[
-                  ["01", "Work is scattered", "Critical information lives across tools, files, inboxes, and people."],
-                  ["02", "Teams move slower", "Time gets lost in checking, copying, cleaning, and chasing."],
-                  ["03", "Growth gets expensive", "More volume usually means more coordination, more people, and more overhead."],
-                ].map(([number, title, body]) => (
-                  <div key={title} className="grid gap-4 py-5 sm:grid-cols-[3rem_1fr]">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-brand/65">{number}</span>
-                    <div>
-                      <p className="text-base font-semibold leading-snug text-ink">{title}</p>
-                      <p className="mt-1 text-sm leading-6 text-ink-secondary">{body}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
-            <div className="relative">
-              <div className="absolute inset-8 rounded-full bg-brand/10 blur-3xl" />
-              <div className="luxury-ring relative overflow-hidden rounded-[28px] border border-light-border bg-light/78 p-3 shadow-card backdrop-blur-md">
+            <div className="reality-visual-wrap relative">
+              <div className="absolute -inset-8 rounded-full bg-[linear-gradient(135deg,rgba(91,61,245,0.18),rgba(32,214,199,0.16))] blur-3xl" />
+              <div className="reality-visual-frame relative overflow-hidden rounded-[34px] border bg-light/78 p-4 backdrop-blur-md">
                 <Image
                   src="/problem-img.png"
                   alt="Manual work scattered across emails, spreadsheets, approvals, and reports"
                   width={920}
                   height={720}
-                  className="h-auto w-full rounded-[22px]"
+                  className="h-auto w-full rounded-[26px]"
                 />
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="services" className="section-shell relative bg-light-surface">
-        <span id="about" className="absolute -top-20" aria-hidden="true" />
-        <div className="section-container">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div className="max-w-2xl">
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand">What We Build</p>
-              <h2 className="mt-5">AI systems for the work your business repeats every day.</h2>
-              <p className="mt-6 text-[17px]">
-                We design, build, and deploy AI automations around your real workflows — from messy inputs to reliable execution.
-              </p>
-            </div>
-            <div className="divide-y divide-light-border border-y border-light-border">
-              {[
-                ["01", "Workflow Discovery", "We map where time, cost, and manual decisions slow your business down."],
-                ["02", "AI Automation Systems", "We build agents and workflows that process inputs, make decisions, route exceptions, and move work forward."],
-                ["03", "Deployment & Handover", "We deploy into your existing workflow, train your team, and leave you with a system your team can actually use."],
-              ].map(([number, title, body]) => (
-                <div key={title} className="group grid gap-5 py-8 transition-colors duration-300 sm:grid-cols-[4rem_1fr]">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand/65 transition-colors duration-300 group-hover:text-brand">{number}</span>
-                  <div className="grid gap-3 md:grid-cols-[0.68fr_1fr] md:gap-8">
-                    <h3 className="text-[24px] leading-tight">{title}</h3>
-                    <div>
-                      <p className="text-sm leading-7 text-ink-secondary">{body}</p>
-                      <div className="mt-5 h-px w-12 bg-gradient-to-r from-brand/40 to-teal/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    </div>
-                  </div>
+          <div className="reality-pain-list mt-12">
+            {realityPainPoints.map(({ Icon, title, body }) => (
+              <div key={title} className="reality-pain-row">
+                <div className="reality-pain-icon">
+                  <Icon aria-hidden="true" />
                 </div>
-              ))}
-            </div>
+                <div className="min-w-0">
+                  <p className="text-base font-semibold leading-snug text-ink">{title}</p>
+                  <p className="mt-2 text-sm leading-6 text-ink-secondary">{body}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section-shell bg-light-surface">
-        <div className="section-container">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-            <div className="relative">
-              <div className="absolute bottom-8 left-[9px] top-8 w-px bg-gradient-to-b from-brand/25 via-teal/30 to-brand/10" />
-              <div className="divide-y divide-light-border border-y border-light-border">
-                {[
-                  ["Discover the drag", "We identify where repetitive work, delays, and manual decisions slow the business down."],
-                  ["Map the system", "We design around your real inputs, tools, approvals, exceptions, and edge cases."],
-                  ["Build with real data", "We test against the files, formats, constraints, and messy scenarios your team already handles."],
-                  ["Deploy into operations", "We launch the system inside your workflow, document it clearly, and train your team to use it confidently."],
-                ].map(([title, body]) => (
-                  <div key={title} className="relative grid gap-4 py-7 pl-10">
-                    <span className="absolute left-0 top-8 h-[19px] w-[19px] rounded-full border border-teal/35 bg-light shadow-[0_0_24px_rgba(32,214,199,0.22)]">
-                      <span className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand" />
-                    </span>
-                    <div className="grid gap-3 md:grid-cols-[0.58fr_1fr] md:gap-8">
-                      <h3 className="text-[22px] leading-tight">{title}</h3>
-                      <p className="text-sm leading-7 text-ink-secondary">{body}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="max-w-2xl lg:justify-self-end">
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand">How We Work</p>
-              <h2 className="mt-5">We start with the workflow.</h2>
-              <p className="mt-6 text-[17px]">
-                Before we build, we understand how work actually moves — the tools, handoffs, exceptions, delays, and decisions that shape your operations.
+      <section id="services" className="section-shell light-ambient-section light-ambient-section-b relative bg-light-surface">
+        <span id="about" className="absolute -top-20" aria-hidden="true" />
+        <div className="section-container relative z-10">
+          <div className="relative">
+            <div className="max-w-3xl">
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand">What We Build</p>
+              <h2 className="mt-5">AI systems for the work your business repeats every day.</h2>
+              <p className="mt-6 max-w-2xl text-[17px]">
+                We design, build, and deploy AI automations around your real workflows — from messy inputs to reliable execution.
               </p>
+            </div>
+            <div className="service-card-grid mt-12">
+              {serviceCards.map(({ Icon, title, body, label }) => (
+                <div key={title} className="service-card">
+                  <div className="service-card-top">
+                    <div className="service-card-icon">
+                      <Icon aria-hidden="true" />
+                    </div>
+                    <span className="service-card-label">{label}</span>
+                  </div>
+                  <h3 className="mt-8 text-[24px] leading-tight">{title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-ink-secondary">{body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@ export function HomePage() {
         <div className="absolute inset-0 dark-grid opacity-60" />
         <div className="section-container relative grid gap-12 lg:grid-cols-[0.9fr_0.82fr] lg:items-center">
           <div className="max-w-2xl py-4 text-white">
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] !text-white/70">Contact</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] !text-white/70">CONTACT</p>
             <h2 className="mt-5 text-white">Ready to put AI to work?</h2>
             <p className="mt-5 max-w-xl !text-white/72">
               Tell us what is still manual in your business. We will help you identify where AI can reduce effort, speed up execution, and lower operational cost.
@@ -167,14 +167,11 @@ export function HomePage() {
               Working globally
             </p>
           </div>
-          <LeadCaptureForm
+          <CalendlyCtaCard
             title="Book a discovery call"
-            description="Share the workflow you want to improve. We will get back with a clear next step."
-            intent="discovery"
+            description="In 30 minutes, we will understand your workflow, identify the biggest automation opportunities, and suggest a clear next step."
+            points={["Share the workflow", "Find the automation fit", "Get a practical next step"]}
             buttonLabel="Book a discovery call"
-            detailsPlaceholder="What workflow do you want to improve?"
-            dark
-            compact
           />
         </div>
       </section>

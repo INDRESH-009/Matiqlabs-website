@@ -48,13 +48,15 @@ export function SectionLabel({
   children,
   center = false,
   dark = false,
+  className = "",
 }: {
   children: ReactNode;
   center?: boolean;
   dark?: boolean;
+  className?: string;
 }) {
   return (
-    <div className={`mb-6 flex items-center gap-3 ${center ? "justify-center" : ""}`}>
+    <div className={`mb-6 flex items-center gap-3 ${center ? "justify-center" : ""} ${className}`}>
       <span className={`h-px w-10 ${dark ? "bg-white/35" : "bg-brand/70"}`} />
       <span className={`font-mono text-[11px] uppercase tracking-[0.14em] ${dark ? "!text-white" : "text-brand"}`}>{children}</span>
     </div>
