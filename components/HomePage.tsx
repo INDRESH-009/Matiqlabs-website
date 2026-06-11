@@ -169,7 +169,7 @@ export function HomePage() {
           </div>
           <CalendlyCtaCard
             title="Book a discovery call"
-            description="In 30 minutes, we will understand your workflow, identify the biggest automation opportunities, and suggest a clear next step."
+            description="We will understand your workflow, identify automation opportunities, and suggest a clear next step."
             points={["Share the workflow", "Find the automation fit", "Get a practical next step"]}
             buttonLabel="Book a discovery call"
           />

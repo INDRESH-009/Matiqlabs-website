@@ -65,7 +65,7 @@ export function CalendlyCtaCard({
   return (
     <div className="cta-booking-card">
       <div className="relative">
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] !text-teal/90">30 minute call</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] !text-teal/90">Discovery session</p>
         <h3 className="mt-4 text-[clamp(26px,3vw,36px)] leading-tight !text-white">{title}</h3>
         <p className="mt-4 text-sm leading-7 !text-white/66">{description}</p>
 
