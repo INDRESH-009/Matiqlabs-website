@@ -5,6 +5,7 @@ import Image from "next/image";
 import { CalendlyCtaCard } from "@/components/CalendlyCtaCard";
 import { Arrow, Button, GradientOrb, SectionLabel } from "@/components/ui";
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
+import siteCopy from "@/lib/site-copy.json";
 
 const screenshotRoot = "/cargomatiq";
 
@@ -52,38 +53,7 @@ const workflowSteps = [
   },
 ];
 
-const capabilities = [
-  {
-    title: "Vendor statement intake",
-    text: "Accept vendor emails, spreadsheet attachments, PDF statements, HTML tables, and reply chains without asking teams to reshape files first.",
-    details: ["Email bodies", "Excel and PDF files", "Reply chains"],
-  },
-  {
-    title: "Invoice data extraction",
-    text: "Read the operational fields that matter for freight reconciliation, including invoice IDs, shipment references, dates, vendors, charges, and totals.",
-    details: ["Invoice IDs", "Shipment references", "Charge totals"],
-  },
-  {
-    title: "Internal record matching",
-    text: "Compare vendor statement rows against operational or finance records so operators can see what lines up and what needs review.",
-    details: ["Books records", "Vendor rows", "Match status"],
-  },
-  {
-    title: "Tolerance-based matching",
-    text: "Handle real-world variance by separating exact matches from acceptable tolerance matches and true exceptions.",
-    details: ["Exact matches", "Allowed variance", "Residual gaps"],
-  },
-  {
-    title: "Duplicate and missing reference checks",
-    text: "Surface repeated charges, missing references, unmatched invoices, and records that are likely to slow down month-end review.",
-    details: ["Duplicate charges", "Missing refs", "Unmatched rows"],
-  },
-  {
-    title: "Exception-ready reporting",
-    text: "Turn the messy reconciliation run into a structured output your AP or operations team can review, export, and act on.",
-    details: ["Review queue", "Exportable report", "AP handoff"],
-  },
-];
+const capabilities = siteCopy.cargo.capabilities;
 
 function publicImageExists(src: string) {
   return existsSync(join(process.cwd(), "public", src.replace(/^\//, "")));
@@ -204,16 +174,16 @@ export function CargoMatiqPage() {
             blurAmount={0}
             useWindowScroll
             header={
-              <div className="cargo-stack-intro mx-auto text-center">
-                <SectionLabel>WHAT IT HANDLES</SectionLabel>
-                <h2>Built for the work freight teams repeat every week.</h2>
-                <p className="mx-auto mt-5 max-w-2xl text-[17px]">
-                  CargoMatiq covers the intake, extraction, matching, exception review, and reporting steps that turn freight reconciliation into repeatable operations.
+              <div className="cargo-stack-intro">
+                <SectionLabel>{capabilities.label}</SectionLabel>
+                <h2>{capabilities.title}</h2>
+                <p className="mt-5 max-w-2xl text-[17px]">
+                  {capabilities.description}
                 </p>
               </div>
             }
           >
-            {capabilities.map((item, index) => (
+            {capabilities.items.map((item, index) => (
               <ScrollStackItem key={item.title} itemClassName="cargo-capability-card">
                 <div className="flex items-start justify-between gap-6">
                   <div>

@@ -51,13 +51,17 @@ export default function ScrollStack({
   const hasProgressRef = useRef(false);
   const cardCount = Children.count(children);
 
-  const updateStack = useCallback(() => {
+  const updateStack = useCallback((snap = false) => {
     const section = sectionRef.current;
     if (!section || cardCount === 0) return;
 
     const rect = section.getBoundingClientRect();
     const scrollable = Math.max(1, section.offsetHeight - window.innerHeight);
     const targetProgress = clamp(-rect.top / scrollable, 0, 1);
+    if (snap) {
+      hasProgressRef.current = false;
+      lastStylesRef.current = [];
+    }
     const currentProgress = hasProgressRef.current
       ? currentProgressRef.current + (targetProgress - currentProgressRef.current) * 0.24
       : targetProgress;
@@ -125,13 +129,19 @@ export default function ScrollStack({
   useLayoutEffect(() => {
     lastStylesRef.current = [];
     hasProgressRef.current = false;
-    updateStack();
+    updateStack(true);
   }, [updateStack]);
 
   useEffect(() => {
+    const snapStackUpdate = () => updateStack(true);
+
     requestStackUpdate();
     window.addEventListener("scroll", requestStackUpdate, { passive: true });
     window.addEventListener("resize", requestStackUpdate);
+    window.addEventListener("orientationchange", snapStackUpdate);
+    window.addEventListener("pageshow", snapStackUpdate);
+    window.addEventListener("load", snapStackUpdate);
+    document.addEventListener("visibilitychange", snapStackUpdate);
 
     const section = sectionRef.current;
     const resizeObserver = section ? new ResizeObserver(requestStackUpdate) : null;
@@ -139,11 +149,17 @@ export default function ScrollStack({
       resizeObserver.observe(section);
     }
 
-    document.fonts?.ready.then(requestStackUpdate).catch(() => {});
+    const settleTimers = [80, 240, 600].map((delay) => window.setTimeout(snapStackUpdate, delay));
+    document.fonts?.ready.then(snapStackUpdate).catch(() => {});
 
     return () => {
       window.removeEventListener("scroll", requestStackUpdate);
       window.removeEventListener("resize", requestStackUpdate);
+      window.removeEventListener("orientationchange", snapStackUpdate);
+      window.removeEventListener("pageshow", snapStackUpdate);
+      window.removeEventListener("load", snapStackUpdate);
+      document.removeEventListener("visibilitychange", snapStackUpdate);
+      settleTimers.forEach((timer) => window.clearTimeout(timer));
       resizeObserver?.disconnect();
 
       if (frameRef.current !== null) {
@@ -164,7 +180,11 @@ export default function ScrollStack({
           {Children.map(children, (child, index) => (
             <div
               ref={(node) => {
-                if (node) cardsRef.current[index] = node;
+                if (node) {
+                  cardsRef.current[index] = node;
+                } else {
+                  delete cardsRef.current[index];
+                }
               }}
               className="scroll-stack-card-slot"
             >

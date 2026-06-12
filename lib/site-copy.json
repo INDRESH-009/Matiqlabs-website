@@ -218,6 +218,44 @@
         "Flags mismatches, disputes, missing entries, and payment-ready lines"
       ]
     },
+    "capabilities": {
+"label": "WHAT IT HANDLES",
+"title": "Freight invoice reconciliation built for real vendor statements.",
+"description": "CargoMatiq automates vendor statement intake, invoice data extraction, shipment matching, tolerance checks, exception review, and reconciliation reporting — so freight and AP teams spend less time in spreadsheets and more time closing cleanly.",
+"items": [
+{
+"title": "Vendor statement intake",
+"text": "Bring in vendor statements from email, Excel files, PDFs, HTML tables, and forwarded reply chains. CargoMatiq turns inconsistent inputs into reconciliation-ready batches without manual cleanup.",
+"details": ["Email intake", "Excel and PDF statements", "Reply chains"]
+},
+{
+"title": "Invoice data extraction",
+"text": "Extract the fields your freight reconciliation process depends on — invoice numbers, shipment references, vendor names, service dates, line charges, taxes, totals, and currency.",
+"details": ["Invoice numbers", "Shipment references", "Charges and totals"]
+},
+{
+"title": "Shipment and invoice matching",
+"text": "Match vendor statement lines against internal shipment, finance, or TMS records to see what lines up, what is missing, and what needs review.",
+"details": ["Internal records", "Vendor rows", "Match status"]
+},
+{
+"title": "Tolerance-based matching",
+"text": "Apply allowed variance rules for small rate, tax, rounding, or charge differences so acceptable matches move forward and only true exceptions require attention.",
+"details": ["Exact matches", "Allowed variance", "True exceptions"]
+},
+{
+"title": "Duplicate and missing reference checks",
+"text": "Catch duplicate charges, missing shipment references, unmatched invoices, and incomplete vendor rows before they slow down month-end close or AP review.",
+"details": ["Duplicate charges", "Missing references", "Unmatched invoices"]
+},
+{
+"title": "Exception-ready reporting",
+"text": "Generate a clear reconciliation report showing matched lines, tolerance matches, flagged exceptions, and the exact items your team needs to act on.",
+"details": ["Review queue", "Exportable report", "AP handoff"]
+}
+]
+},
+
     "steps": {
       "label": "How it works",
       "title": "From statement to report.",
